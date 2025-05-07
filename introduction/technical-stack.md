@@ -1,156 +1,197 @@
 # Technical Stack
 
-Strike Bot - Project Overview\
-Introduction\
-Strike Bot is a sophisticated Telegram trading bot implementation for the Solana blockchain, built with TypeScript and the Grammy bot framework. This document provides a comprehensive overview of the project's implementation and architecture.\
-Core Implementation Structure
+Strike Bot is a sophisticated Telegram trading bot for the Solana blockchain, built with TypeScript and the Grammy bot framework. This document provides a comprehensive overview of the project's technical stack, detailing its implementation, architecture, and key components.
 
-1. Bot Architecture (src/bot/)
+### Table of Contents
 
-* context.ts
-* i18n.ts
-* index.ts
+* Core Technologies
+* Core Implementation Structure
+* System Architecture
+* Database and Storage
+* External Integrations
+* Development Tools
+* Security Implementation
+* Configuration Management
 
-1.1 Feature Modules (src/bot/features/)
+### Core Technologies
 
-* buyToken.feature.ts
-* sellToken.feature.ts
-* trade.feature.ts
-* positions.feature.ts
-* limitOrder.feature.ts
+* **Programming Language**: TypeScript
+  * Provides type safety and modern JavaScript features for robust development.
+* **Bot Framework**: Grammy
+  * A powerful framework for building Telegram bots with a clean and intuitive API.
 
-1.2 Service Layer (src/bot/services/)
+### Core Implementation Structure
 
-* dexScreenerPrice.service.ts
-* executeSwap.service.ts
-* comission.service.ts
-* settings.service.ts
+#### Bot Architecture (`src/bot/`)
 
-2. Conversation System (conversations)\
-   The bot implements sophisticated conversation flows for various trading operations:
+* `context.ts`: Custom context implementation for enhanced bot functionality.
+* `i18n.ts`: Internationalization setup for multi-language support.
+* `index.ts`: Main bot initialization and entry point.
 
-* buy-sell-settings.conversation.ts
-* customSolAmount.conversation.ts
-* slippagePercentage.conversation.ts
-* withdrawCustomPercentage.conversation.ts
+**Feature Modules (`src/bot/features/`)**
 
-Technical Features\
-3.1 Database Integration
+* `buyToken.feature.ts`: Implements token purchase functionality.
+* `sellToken.feature.ts`: Handles token selling operations.
+* `trade.feature.ts`: Provides the core trading interface.
+* `positions.feature.ts`: Manages user positions and portfolio.
+* `limitOrder.feature.ts`: Implements the limit order system.
 
-* MongoDB for persistent storage
-* Redis for session management
-* Queue system for order processing
+**Service Layer (`src/bot/services/`)**
 
-3.2 Environment Management
+* `dexScreenerPrice.service.ts`: Integrates real-time price feeds.
+* `executeSwap.service.ts`: Executes swap transactions.
+* `comission.service.ts`: Manages commission and fee handling.
+* `settings.service.ts`: Handles user settings and preferences.
 
-* Production/Development environments
-* API keys and secrets
-* Network configurations
+#### Conversation System (`conversations`)
 
-Core Features Implementation
+The bot features sophisticated conversation flows for seamless user interaction:
 
-1. Trading System
+* `buy-sell-settings.conversation.ts`
+* `customSolAmount.conversation.ts`
+* `slippagePercentage.conversation.ts`
+* `withdrawCustomPercentage.conversation.ts`
 
-export class TradeFeature {\
-\- Core trading functionality\
-\- Market order execution\
-\- Price monitoring\
-\- Transaction validation\
-}
+#### Core Features
 
-2. Limit Order System
+**Trading System**
 
-export class LimitOrderFeature {\
-\- Limit order creation\
-\- Price monitoring\
-\- Order execution\
-\- Order cancellation\
-}
+The `TradeFeature` class manages:
 
-3. Position Management
+* Core trading functionality
+* Market order execution
+* Price monitoring
+* Transaction validation
 
-export class PositionsFeature {\
-\- Position tracking\
-\- PnL calculation\
-\- Position closing\
-\- Portfolio management\
-}
+**Limit Order System**
 
-System Architecture
+The `LimitOrderFeature` class handles:
 
-1. Middleware Pipeline (middlewares)
+* Limit order creation
+* Price monitoring
+* Order execution
+* Order cancellation
 
-* settings-init.middleware.ts
-* update-logger.ts
+**Position Management**
 
-2. Service Layer Architecture\
-   ├── Price Service (Real-time price feeds)\
-   ├── Wallet Service (Wallet management)\
-   ├── Commission Service (Fee handling)\
-   ├── Swap Service (Trade execution)\
-   └── Settings Service (User preferences)
-3. Queue System (queues)
+The `PositionsFeature` class oversees:
+
+* Position tracking
+* PnL (Profit and Loss) calculation
+* Position closing
+* Portfolio management
+
+### System Architecture
+
+#### Middleware Pipeline (`middlewares`)
+
+* `settings-init.middleware.ts`: Initializes user settings on startup.
+* `update-logger.ts`: Logs bot activities and updates.
+
+#### Service Layer Architecture
+
+```
+├── Price Service (Real-time price feeds)
+├── Wallet Service (Wallet management)
+├── Commission Service (Fee handling)
+├── Swap Service (Trade execution)
+└── Settings Service (User preferences)
+```
+
+#### Queue System (`queues`)
 
 * Price monitoring queue
 * Order execution queue
 * Transaction processing queue
 
-Security Implementation
+### Database and Storage
 
-1. Wallet Security
+* **Persistent Storage**: MongoDB
+  * Used for storing user data and transaction history.
+* **Session Management**: Redis
+  * Handles session data for fast access and scalability.
+* **Queue System**: Dedicated system for order processing
+  * Ensures efficient handling of trading operations.
+
+### External Integrations
+
+* **External APIs**:
+  * **Solana RPC Nodes**: Blockchain interaction and data retrieval.
+  * **Jupiter Aggregator**: Optimized trading routes and liquidity.
+  * **DexScreener Price Feed**: Real-time price data integration.
+
+### Development Tools
+
+#### Build System
+
+Defined in `package.json`:
+
+```json
+{
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  }
+}
+```
+
+* `build`: Compiles TypeScript to JavaScript.
+* `start`: Runs the compiled bot.
+* `dev`: Development mode with live reloading.
+
+#### Code Quality
+
+* **TypeScript**: Ensures type safety across the codebase.
+* **ESLint**: Maintains code quality and consistency.
+* **Docker**: Provides containerization for deployment and testing.
+
+### Security Implementation
+
+#### Wallet Security
+
+Implemented in `src/bot/helpers/walletService.helper.ts`:
 
 * Encrypted private key storage
 * Secure transaction signing
-* Rate limiting
+* Rate limiting to prevent abuse
 
-2. Transaction Safety
+#### Transaction Safety
 
-* Slippage protection
-* Transaction validation
-* Error handling
+Implemented across services:
 
-Configuration Management
+* Slippage protection for stable trading
+* Transaction validation for integrity
+* Error handling for reliability
 
-1. Environment Configuration\
-   export interface EnvironmentConfig {\
-   NODE\_ENV: string;\
-   BOT\_TOKEN: string;\
-   MONGODB\_URI: string;\
-   REDIS\_URL: string;\
-   }
-2. Deployment Configuration\
-   module.exports = {\
-   apps: \[{\
-   name: "strike-bot",\
-   script: "dist/index.js",\
-   }]\
-   }
+### Configuration Management
 
-Integration Points
+#### Environment Configuration
 
-1. External APIs
+Defined in `src/environment.config.ts`:
 
-Solana RPC nodes\
-Jupiter Aggregator\
-DexScreener Price Feed
+```typescript
+export interface EnvironmentConfig {
+  NODE_ENV: string;
+  BOT_TOKEN: string;
+  MONGODB_URI: string;
+  REDIS_URL: string;
+}
+```
 
-2. Database Systems
+* Supports production and development environments with API keys and network settings.
 
-MongoDB for persistent storage\
-Redis for caching and sessions
+#### Deployment Configuration
 
-Development Tools
+Defined in `ecosystem.config.js`:
 
-1. Build System\
-   {\
-   "scripts": {\
-   "build": "tsc -p tsconfig.build.json",\
-   "start": "node dist/index.js",\
-   "dev": "ts-node src/index.ts"\
-   }\
-   }
-2. Code Quality
+```javascript
+module.exports = {
+  apps: [{
+    name: "strike-bot",
+    script: "dist/index.js"
+  }]
+}
+```
 
-TypeScript for type safety\
-ESLint for code quality\
-Docker for containerization
+* Configures the bot for deployment with process management.

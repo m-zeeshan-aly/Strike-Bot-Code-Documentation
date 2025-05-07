@@ -1,71 +1,55 @@
-# Strike Bot - Introduction
+# Key Features
 
-## Overview
+The Strike Bot offers a robust set of features tailored for trading on the Solana blockchain, enhanced with user-friendly tools, reward systems, and strong security measures. Below are the primary features that define the bot’s capabilities.
 
-Strike Bot is a sophisticated Telegram trading bot built for the Solana blockchain ecosystem. It provides users with fast, efficient, and secure trading capabilities along with additional features like weekly prize draws and a referral program.
+### Trading Capabilities
 
-## Core Features
+* **Fast Token Swaps**: Execute quick and efficient token swaps on the Solana blockchain.
+* **Custom Slippage Settings**: Configure slippage tolerance to optimize trade execution.
+* **Real-Time Price Monitoring**: Access live price updates via DexScreener integration.
+* **Market and Limit Orders**: Support for both immediate market orders and conditional limit orders.
+* **Position Management**: Track and manage open trading positions with ease.
+* **Multiple Token Pair Support**: Trade across a variety of token pairs using Jupiter Aggregator.
 
-### 1. Trading Capabilities
-- Quick token swaps on Solana
-- Custom slippage settings
-- Real-time price monitoring
-- Support for both market and limit orders
-- Position management
-- Multiple token pair support
+### Advanced Order Systems
 
-### 2. Advanced Order Systems
-- Limit order functionality
-- Price monitoring system
-- Auto-execution of orders
-- Order expiry management
-- Position tracking
+* **Limit Order Functionality**: Create orders to execute at specific price points (`limitOrder.feature.ts`).
+* **Price Monitoring System**: Continuously monitor market prices for timely order execution.
+* **Auto-Execution**: Automatically trigger orders when price conditions are met.
+* **Order Expiry Management**: Set and manage expiration times for limit orders.
+* **Position Tracking**: Monitor ongoing positions with real-time updates (`positions.feature.ts`).
 
-### 3. User Management
-- Secure wallet integration
-- User settings persistence
-- Custom trading preferences
-- Balance tracking
-- Transaction history
+### User Management
 
-### 4. Reward Systems
-- Weekly prize pool
-- Referral program
-  - 50% commission to direct referrer
-  - 10% commission to indirect referrer
-  - Prize pool entries (1 per $100 traded)
+* **Secure Wallet Integration**: Safely connect user wallets with encrypted key storage (`walletService.helper.ts`).
+* **Persistent User Settings**: Save and retrieve user preferences via MongoDB (`settings.service.ts`).
+* **Custom Trading Preferences**: Tailor trading settings like slippage and amounts (`buy-sell-settings.conversation.ts`).
+* **Balance Tracking**: View real-time account balances through the bot interface.
+* **Transaction History**: Access detailed records of past trades and transactions.
 
-### 5. Security Features
-- Encrypted private key storage
-- Session management
-- Rate limiting
-- Error handling and recovery
-- Secure withdrawal system
+### Reward Systems
 
-## Technical Stack
+* **Weekly Prize Pool**: Participate in weekly prize draws with entries earned through trading (1 entry per $100 traded).
+* **Referral Program**: Earn commissions for referrals:
+  * 50% commission for direct referrals.
+  * 10% commission for indirect referrals.
+* **Prize Pool Entries**: Automatically accrue entries based on trading volume (`comission.service.ts`).
 
-### Core Technologies
-- Node.js/TypeScript
-- Grammy Bot Framework
-- MongoDB Database
-- Redis Cache
-- BullMQ for Queue Management
+### Security Features
 
-### Blockchain Integration
-- Solana Web3.js
-- Jupiter Aggregator API
-- DexScreener Price Feed
+* **Encrypted Private Key Storage**: Protect wallet keys with secure encryption (`walletService.helper.ts`).
+* **Session Management**: Maintain secure user sessions using Redis (`RedisAdapter`).
+* **Rate Limiting**: Prevent abuse with action limits across services.
+* **Error Handling and Recovery**: Ensure stability with robust error management (`executeSwap.service.ts`).
+* **Secure Withdrawal System**: Safely withdraw funds with validation checks (`withdrawCustomPercentage.conversation.ts`).
 
-### Infrastructure
-- Docker containerization
-- PM2 process management
-- Graceful shutdown handling
-- Health monitoring
+### Bot Commands
 
-## Bot Commands
-
-```typescript
-/start      - Initialize the bot and create wallet
-/settings   - Configure bot settings
-/help       - Display help information
-/withdraw   - Initiate withdrawal process
+* `/start`: Initialize the bot and set up a user wallet.
+* `/settings`: Configure trading and bot preferences.
+* `/help`: Display available commands and support information.
+* `/withdraw`: Initiate the withdrawal process for funds.
+* `/buy`: Execute a token purchase (`buyToken.feature.ts`).
+* `/sell`: Sell tokens from the user’s wallet (`sellToken.feature.ts`).
+* `/limitorders`: Manage limit orders (`limitOrder.feature.ts`).
+* `/positions`: View current trading positions (`positions.feature.ts`).
