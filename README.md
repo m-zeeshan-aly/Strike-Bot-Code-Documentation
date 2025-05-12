@@ -7,7 +7,7 @@
 * [Getting Started](getting-started/prerequisites.md)
   * [Prerequisites](getting-started/prerequisites.md)
   * [Installation](getting-started/installation.md)
-  * [Configuration](getting-started/configuration.md)
+  * [Configuration](broken-reference)
   * [Quick Start Guide](getting-started/quick-start.md)
 * [Architecture](architecture/system-design.md)
   * [System Design](architecture/system-design.md)

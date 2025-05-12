@@ -1,7 +1,5 @@
 # Queue System
 
-## Queue System Architecture - Strike Bot
-
 This document details the actual queue system implementation in the Strike Bot, focusing on the BullMQ-based job processing system for handling Solana trades, price monitoring, and transaction confirmations.
 
 ### Table of Contents

@@ -1,7 +1,5 @@
 # Database Schema
 
-## Database Schema Documentation
-
 This document details the MongoDB database schema for the Telegram trading bot, a platform that facilitates cryptocurrency trading on the Solana blockchain. It covers the schema design for all collections, relationships between models, indexes for performance optimization, data validation rules, schema evolution strategy, and includes an entity-relationship (ER) diagram illustrating the connections between collections.
 
 ### Table of Contents
