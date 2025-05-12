@@ -24,8 +24,6 @@
     * [Buy/Sell Settings](core-components/conversations/buy-sell-settings.md)
     * [Token Address](core-components/conversations/token-address.md)
     * [Custom Amounts](core-components/conversations/custom-amounts.md)
-    * [Slippage Settings](core-components/conversations/slippage-settings.md)
-    * [Limit Orders](core-components/conversations/limit-orders.md)
   * [Services](core-components/index/README.md)
     * [Price Service](core-components/index/price-service.md)
     * [Wallet Service](core-components/index/wallet-service.md)
