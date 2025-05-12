@@ -1,7 +1,5 @@
 # Monitoring
 
-## Monitoring and Logging Guide
-
 ### Logging Configuration
 
 #### Server Logging Setup
@@ -312,4 +310,3 @@ docker network inspect bot-network
    * Log analysis
    * Service restart if needed
    * Alert relevant teams
-

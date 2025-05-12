@@ -1,7 +1,5 @@
 # Docker Deployment
 
-## Docker Deployment Guide
-
 ### Overview
 
 The Strike Bot uses a sophisticated multi-stage Docker build process with separate configurations for development and production environments. This guide details the complete Docker setup and deployment process.
@@ -70,7 +68,7 @@ volumes:
   dist-volume:
 ```
 
-#### Development Overrides (compose.override.yml) 
+#### Development Overrides (compose.override.yml)
 
 ```
 services:
@@ -427,4 +425,3 @@ docker stats strike-bot strike-bot-redis
 3. Access development services:
    * Bot API: localhost:3000
    * Redis: localhost:6379
-
