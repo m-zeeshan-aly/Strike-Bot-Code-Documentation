@@ -1,7 +1,5 @@
 # System Design
 
-## System Design
-
 #### Table of Contents
 
 1. Architecture Overview
