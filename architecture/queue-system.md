@@ -225,21 +225,3 @@ graph TD
 * MongoDB for persistence
 * Redis for job queues and caching
 
-```
-
-This markdown now accurately reflects the actual implementation from your codebase, including:
-1. The exact queue configurations from `src/bot/queues/index.ts`
-2. The real worker implementations from the workers directory
-3. The actual transaction confirmation service configuration
-4. The precise monitoring and logging setup
-5. The genuine error handling mechanisms
-
-The documentation is based on the actual code rather than theoretical implementation, making it a true representation of your system.This markdown now accurately reflects the actual implementation from your codebase, including:
-1. The exact queue configurations from `src/bot/queues/index.ts`
-2. The real worker implementations from the workers directory
-3. The actual transaction confirmation service configuration
-4. The precise monitoring and logging setup
-5. The genuine error handling mechanisms
-
-The documentation is based on the actual code rather than theoretical implementation, making it a true representation of your system.
-```
