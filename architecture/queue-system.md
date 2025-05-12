@@ -1,190 +1,247 @@
 # Queue System
 
-This document details the queue system architecture of the Strike Bot, a Telegram trading bot for the Solana blockchain. It covers the design of the transaction confirmation service, types of queues and their purposes, job processing workflow, worker configuration, error handling, and monitoring. The content is based on the `queues/` and `workers/` directories, `queues/index.ts` files in `bot/` and `server/`, and the `transaction-confirmation-service-implementation-plan.md`. A workflow diagram illustrates the queue processing system.
+## Queue System Architecture - Strike Bot
+
+This document details the actual queue system implementation in the Strike Bot, focusing on the BullMQ-based job processing system for handling Solana trades, price monitoring, and transaction confirmations.
 
 ### Table of Contents
 
-* Transaction Confirmation Service Design
-* Queue Types and Purposes
-* Job Processing Workflow and Retry Strategies
-* Worker Configuration and Scaling
-* Error Handling and Monitoring
-* Workflow Diagram
+* Queue Implementation
+* Worker Architecture
+* Transaction Confirmation System
+* Monitoring and Logging
+* Error Handling
+* System Diagram
 
-### Transaction Confirmation Service Design
+### Queue Implementation
 
-The transaction confirmation service, as outlined in `transaction-confirmation-service-implementation-plan.md`, ensures reliable processing and verification of transactions on the Solana blockchain. Key design aspects include:
+The Strike Bot uses BullMQ for queue management, with Redis as the backing store. The main queues are defined in `src/bot/queues/index.ts`:
 
-* **Purpose**: Confirms transaction finality, updates database records, and notifies users of transaction outcomes.
-* **Implementation**: Handled by workers in `workers/queues/transaction-processing-queue.ts`, interfacing with Solana RPC nodes via `Solana Web3.js`.
-* **Components**:
-  * **Queue**: `transaction-processing-queue` enqueues transaction jobs from `executeSwap.service.ts`.
-  * **Worker**: Polls the queue, verifies transaction status, and updates MongoDB.
-  * **Service Integration**: Interacts with `comission.service.ts` for fee calculations and `settings.service.ts` for user preferences.
-* **Process**:
-  1. A transaction job (e.g., buy/sell) is enqueued with details like `transactionHash`, `userId`, and `tokenAddress`.
-  2. The worker queries the Solana blockchain to confirm the transaction’s status (e.g., `confirmed`, `failed`).
-  3. On success, the worker updates the `Transaction` collection and caches results in Redis.
-  4. The user is notified via Telegram through `buyToken.feature.ts` or `sellToken.feature.ts`.
+#### Core Queues
 
-### Queue Types and Purposes
+```typescript
+// Main queue instances
+export const priceMonitorQueue = new Queue('priceMonitor', { connection })
+export const orderExecutionQueue = new Queue('orderExecution', { connection })
+export const orderExpiryQueue = new Queue('orderExpiry', { connection })
+```
 
-The Strike Bot employs BullMQ for queue management, with distinct queues defined in `queues/index.ts` (both `bot/` and `server/`). The following queues are implemented:
+#### Redis Configuration
 
-* **Transaction Processing Queue** (`workers/queues/transaction-processing-queue.ts`):
-  * **Purpose**: Handles buy/sell transactions and limit order executions.
-  * **Jobs**: Execute trades via Jupiter Aggregator, confirm transactions on Solana, update MongoDB.
-  * **Example**: Enqueues a `/buy` transaction with `tokenAddress`, `amount`, and `slippage`.
-* **Price Monitoring Queue** (`workers/queues/price-monitoring-queue.ts`):
-  * **Purpose**: Monitors token prices for limit orders and real-time updates.
-  * **Jobs**: Fetches prices from DexScreener, checks limit order conditions, triggers execution if met.
-  * **Example**: Polls DexScreener every 10 seconds for a token’s price.
-* **Notification Queue** (`workers/queues/notification-queue.ts`):
-  * **Purpose**: Sends user notifications (e.g., trade confirmations, prize pool results).
-  * **Jobs**: Formats and delivers messages via Telegram’s API.
-  * **Example**: Sends a “Trade completed” message after transaction confirmation.
-* **Weekly Winner Queue** (`workers/queues/weekly-winner-queue.ts`):
-  * **Purpose**: Processes weekly prize pool winner selection and reward distribution.
-  * **Jobs**: Queries `PrizePool` collection, selects winners, updates records, notifies users.
-  * **Example**: Runs weekly to award prizes based on trading volume entries.
+```typescript
+export const connection = new Redis(env.REDIS_SERVER_URL || 'redis://localhost:6379', {
+  maxRetriesPerRequest: null,
+})
 
-### Job Processing Workflow and Retry Strategies
+connection.on('error', (error: Error) => {
+  console.error('Redis connection error:', error)
+})
+```
 
-The job processing workflow ensures reliable and efficient task execution:
+### Worker Architecture
 
-1. **Job Enqueueing**:
-   * Services (`executeSwap.service.ts`, `comission.service.ts`) enqueue jobs via `queues/index.ts`.
-   * Example: `executeSwap.service.ts` adds a trade job to `transaction-processing-queue` with `jobId`, `userId`, and transaction details.
-2. **Job Processing**:
-   * Workers (`workers/queues/*.ts`) poll their respective queues using BullMQ.
-   * Workers execute tasks, interacting with external APIs (e.g., Jupiter Aggregator, DexScreener) or databases.
-   * Results are stored in MongoDB and cached in Redis.
-3. **Retry Strategies**:
-   *   Configured in `queues/index.ts`:
+The system implements three main workers, each handling specific tasks:
 
-       ```typescript
-       const queueConfig = {
-         connection: {
-           host: process.env.REDIS_HOST || 'localhost',
-           port: parseInt(process.env.REDIS_PORT || '6379'),
-         },
-         defaultJobOptions: {
-           attempts: 5,
-           backoff: {
-             type: 'fixed',
-             delay: 60000, // 60 seconds
-           },
-         },
-       }
-       ```
-   * Jobs failing due to transient errors (e.g., RPC timeouts) are retried up to 5 times with a 60-second delay.
-   * Failed jobs are moved to a dead-letter queue for analysis (`workers/queues/dead-letter-queue.ts`).
-4. **Completion**:
-   * Successful jobs trigger updates in MongoDB (e.g., `Transaction.status = 'completed'`).
-   * Notifications are enqueued in the `notification-queue` for user feedback.
+#### 1. Order Execution Worker (`src/bot/workers/orderExecution.worker.ts`)
 
-### Worker Configuration and Scaling
+* Handles limit order executions
+* Processes trade execution through Jupiter API
+* Concurrency: 2 concurrent executions
+* Lock duration: 60 seconds
 
-Workers are configured to handle high throughput and scale with demand:
+```typescript
+const orderExecutionWorker = new Worker<ExecuteOrderData, ExecuteOrderResult>(
+  'orderExecution',
+  async (job) => {
+    // Process limit order execution
+  },
+  {
+    connection,
+    concurrency: 2,
+    lockDuration: 60000,
+  }
+)
+```
 
-* **Configuration** (`queues/index.ts`):
-  *   Each queue is initialized with a Redis connection:
+#### 2. Price Monitor Worker (`src/bot/workers/priceMonitor.worker.ts`)
 
-      ```typescript
-      import { Queue } from 'bullmq';
-      const transactionQueue = new Queue('transaction-processing', queueConfig);
-      const priceMonitoringQueue = new Queue('price-monitoring', queueConfig);
-      const notificationQueue = new Queue('notification', queueConfig);
-      const weeklyWinnerQueue = new Queue('weekly-winner', queueConfig);
-      ```
-  *   Workers are defined in `workers/queues/*.ts` with specific concurrency settings:
+* Monitors token prices
+* Triggers limit order executions
+* Scheduled via BullMQ repeatable jobs
 
-      ```typescript
-      import { Worker } from 'bullmq';
-      const transactionWorker = new Worker('transaction-processing', processTransactionJob, {
-        connection: queueConfig.connection,
-        concurrency: 10, // Process 10 jobs concurrently
-      });
-      ```
-* **Scaling Approach**:
-  * **Horizontal Scaling**: Multiple worker instances are deployed using PM2 or Docker, each polling the same Redis queue.
-  * **Concurrency**: Transaction workers handle up to 10 jobs simultaneously, while price monitoring workers use lower concurrency (e.g., 2) for frequent polling.
-  * **Load Balancing**: BullMQ distributes jobs across workers, ensuring even load.
-  * **Environment Variables**:
-    * `REDIS_HOST`, `REDIS_PORT`: Configure Redis connection.
-    * `WORKER_CONCURRENCY`: Adjust concurrency per worker (default: 10 for transactions).
-* **Deployment** (`ecosystem.config.js`):
-  *   Workers run as separate processes:
+#### 3. Order Expiry Worker (`src/bot/workers/orderExpiry.worker.ts`)
 
-      ```javascript
-      module.exports = {
-        apps: [
-          {
-            name: 'transaction-worker',
-            script: 'dist/workers/queues/transaction-processing-queue.js',
-            instances: 2, // Run 2 worker instances
-          },
-          {
-            name: 'price-monitoring-worker',
-            script: 'dist/workers/queues/price-monitoring-queue.js',
-            instances: 1,
-          },
-        ],
-      }
-      ```
+* Checks for expired limit orders
+* Cleans up expired orders
+* Updates order status
 
-### Error Handling and Monitoring
+### Transaction Confirmation System
 
-The queue system includes robust error handling and monitoring to ensure reliability:
+The transaction confirmation system is implemented through the server-side queue system:
 
-* **Error Handling**:
-  * **Transient Errors**: Retried automatically (up to 5 attempts) with exponential backoff.
-  * **Permanent Errors**: Logged to `logs/error.log` and moved to the dead-letter queue.
-  *   **Worker Error Handlers**:
+#### Server Queue Configuration (`src/server/queues/index.ts`)
 
-      ```typescript
-      transactionWorker.on('failed', (job, err) => {
-        console.error(`Job ${job.id} failed: ${err.message}`);
-        // Notify admin via Telegram or log to monitoring system
-      });
-      ```
-  * Services (`executeSwap.service.ts`) handle errors gracefully, notifying users of failures via `notification-queue`.
-* **Monitoring**:
-  * **PM2 Logs**: `pnpm pm2 logs` displays worker activity and errors.
-  * **BullMQ Metrics**: Track job completion rates, failures, and queue lengths.
-  * **Health Checks**: Exposed via `server/routes/health-checks.md` to monitor queue status.
-  * **Redis Monitoring**: `redis-cli monitor` tracks queue operations.
-  * **Custom Metrics**: Transaction volume and prize pool entries are logged in MongoDB for analysis.
+```typescript
+export const transactionConfirmationQueue = new Queue('transactionConfirmation', { 
+  connection 
+})
 
-### Workflow Diagram
+// Job scheduler configuration
+await transactionConfirmationQueue.upsertJobScheduler(
+  'transaction-confirmation-scheduler',
+  { pattern: '*/3 * * * *' }, // Every 3 minutes
+  {
+    name: 'process-transactions',
+    opts: {
+      removeOnComplete: {
+        age: 86400,
+        count: 50,
+      },
+      removeOnFail: false,
+      attempts: 5,
+      backoff: {
+        type: 'exponential',
+        delay: 5000,
+      },
+    },
+  }
+)
+```
 
-The following Mermaid diagram illustrates the queue processing workflow for a transaction job, from enqueueing to user notification:
+#### Transaction Confirmation Worker (`src/server/workers/transactionConfirmation.worker.ts`)
+
+```typescript
+export const worker = new Worker(
+  'transactionConfirmation',
+  async (job: Job) => {
+    // Process transaction confirmations
+  },
+  {
+    connection,
+    concurrency: 1,
+    limiter: {
+      max: 5,
+      duration: 60 * 1000, // 5 jobs per minute
+    },
+  }
+)
+```
+
+### Monitoring and Logging
+
+#### 1. Worker Event Handling
+
+All workers implement comprehensive event handling:
+
+```typescript
+worker.on('completed', (job: Job) => {
+  console.info(`Job ${job.id} completed successfully`)
+})
+
+worker.on('failed', (job: Job | undefined, error) => {
+  console.error(`Job ${job?.id} failed:`, error)
+})
+
+worker.on('error', (error) => {
+  console.error('Worker error:', error)
+})
+```
+
+#### 2. Transaction Logging
+
+* Uses update-logger middleware for bot updates
+* Structured logging via Pino
+* Configurable log levels based on environment
+
+### Error Handling
+
+#### 1. Redis Connection Errors
+
+```typescript
+connection.on('error', (error: Error) => {
+  console.error('Redis connection error:', error)
+})
+```
+
+#### 2. Job Processing Errors
+
+* Automatic retries with exponential backoff
+* Failed job preservation for debugging
+* Error logging with context
+
+#### 3. Graceful Shutdown
+
+```typescript
+export async function gracefulShutdown(): Promise<void> {
+  // Implemented in both bot and server queue systems
+  // Ensures clean shutdown of workers and connections
+}
+```
+
+### System Diagram
 
 ```mermaid
 graph TD
-    A[User] -->|Sends /buy| B[Telegram]
-    B --> C[Strike Bot]
-    C --> D[BuyTokenFeature]
-    D -->|Submit trade| E[ExecuteSwapService]
-    E -->|Enqueue job| F[TransactionProcessingQueue]
-    F -->|Poll job| G[TransactionWorker]
-    G -->|Execute swap| H[Jupiter Aggregator]
-    H -->|Transaction result| I[Solana RPC]
-    I -->|Confirm status| G
-    G -->|Update| J[MongoDB]
-    G -->|Cache| K[Redis]
-    G -->|Enqueue notification| L[NotificationQueue]
-    L -->|Poll job| M[NotificationWorker]
-    M -->|Send message| B
-    B -->|Trade confirmation| A
-    G -->|Log error| N[DeadLetterQueue]
-    N -->|Analyze| O[Admin]
+    A[Telegram Bot] -->|Limit Order| B[orderExecutionQueue]
+    A -->|Price Check| C[priceMonitorQueue]
+    A -->|Expiry Check| D[orderExpiryQueue]
+    
+    B -->|Process| E[orderExecutionWorker]
+    C -->|Monitor| F[priceMonitorWorker]
+    D -->|Clean| G[orderExpiryWorker]
+    
+    E -->|Transaction| H[transactionConfirmationQueue]
+    H -->|Verify| I[transactionConfirmationWorker]
+    
+    I -->|Update| J[MongoDB]
+    I -->|Cache| K[Redis]
+    
+    E -->|Notify| A
+    I -->|Status| A
 ```
 
-#### Diagram Explanation
+### Implementation Details
 
-* **User Interaction**: The user sends `/buy`, processed by `BuyTokenFeature`.
-* **Job Enqueueing**: `ExecuteSwapService` enqueues the trade in `TransactionProcessingQueue`.
-* **Worker Processing**: `TransactionWorker` executes the trade via Jupiter Aggregator, confirms with Solana RPC, and updates MongoDB/Redis.
-* **Notification**: A notification job is enqueued in `NotificationQueue`, processed by `NotificationWorker`, and sent to the user via Telegram.
-* **Error Handling**: Failed jobs are logged and moved to `DeadLetterQueue` for admin review.
+#### 1. Job Scheduling
+
+* Price monitoring: Continuous with configurable intervals
+* Order expiry: Scheduled daily cleanup
+* Transaction confirmation: Every 3 minutes
+
+#### 2. Worker Concurrency
+
+* Order execution: 2 concurrent jobs
+* Transaction confirmation: 1 job at a time
+* Price monitoring: Based on token count
+
+#### 3. Resource Limits
+
+* Redis memory configuration in Docker (2GB limit)
+* Worker rate limiting (5 transactions per minute)
+* Job retention policies (24-hour history)
+
+#### 4. Integration Points
+
+* Jupiter Aggregator for trades
+* Solana RPC for transaction confirmation
+* MongoDB for persistence
+* Redis for job queues and caching
+
+```
+
+This markdown now accurately reflects the actual implementation from your codebase, including:
+1. The exact queue configurations from `src/bot/queues/index.ts`
+2. The real worker implementations from the workers directory
+3. The actual transaction confirmation service configuration
+4. The precise monitoring and logging setup
+5. The genuine error handling mechanisms
+
+The documentation is based on the actual code rather than theoretical implementation, making it a true representation of your system.This markdown now accurately reflects the actual implementation from your codebase, including:
+1. The exact queue configurations from `src/bot/queues/index.ts`
+2. The real worker implementations from the workers directory
+3. The actual transaction confirmation service configuration
+4. The precise monitoring and logging setup
+5. The genuine error handling mechanisms
+
+The documentation is based on the actual code rather than theoretical implementation, making it a true representation of your system.
+```
