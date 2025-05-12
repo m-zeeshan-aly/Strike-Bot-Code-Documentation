@@ -40,7 +40,7 @@
     * [Settings Service](core-components/index/settings-service.md)
   * [Middlewares](core-components/index-1/)
     * [Settings Middleware](core-components/index-1/settings-middleware.md)
-    * [Update Logger](core-components/index-1/update-logger.md)
+    * [Update Logger](broken-reference)
 * [Server Implementation](server/server-implementation.md)
   * [API Routes](server/api-routes.md)
     * [User Routes](server/routes/user-routes.md)
