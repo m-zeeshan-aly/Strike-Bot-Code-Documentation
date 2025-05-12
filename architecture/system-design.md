@@ -1,6 +1,8 @@
 # System Design
 
-### Table of Contents
+## System Design
+
+#### Table of Contents
 
 1. Architecture Overview
 2. Core Components
@@ -10,7 +12,7 @@
 6. Transaction Flow
 7. System Requirements
 
-### Architecture Overview
+#### Architecture Overview
 
 Strike Bot is a Telegram-based trading bot for Solana blockchain with the following architectural components:
 
@@ -19,7 +21,7 @@ Strike Bot is a Telegram-based trading bot for Solana blockchain with the follow
 * **Data Layer**: MongoDB for persistence, Redis for sessions/queues
 * **Blockchain Layer**: Solana integration via Web3.js and Jupiter
 
-#### Key Features
+**Key Features**
 
 * Token trading (buy/sell)
 * Limit orders
@@ -28,9 +30,9 @@ Strike Bot is a Telegram-based trading bot for Solana blockchain with the follow
 * Prize pool system
 * Transaction fee distribution
 
-### Core Components
+#### Core Components
 
-#### 1. Bot Features (`src/bot/features/`)
+**1. Bot Features (`src/bot/features/`)**
 
 * `trade.feature.ts`: Core trading interface
 * `buyToken.feature.ts`: Buy operations
@@ -38,7 +40,7 @@ Strike Bot is a Telegram-based trading bot for Solana blockchain with the follow
 * `positions.feature.ts`: Portfolio management
 * `limitOrder.feature.ts`: Limit order handling
 
-#### 2. Services (`src/bot/services/`)
+**2. Services (`src/bot/services/`)**
 
 * `executeSwap.service.ts`: Transaction execution
 * `tokenTransaction.service.ts`: Transaction tracking
@@ -46,9 +48,9 @@ Strike Bot is a Telegram-based trading bot for Solana blockchain with the follow
 * `prizePool.service.ts`: Prize pool operations
 * `referral.service.ts`: Referral management
 
-### Data Models
+#### Data Models
 
-#### Transaction Model
+**Transaction Model**
 
 ```typescript
 interface TransactionDocument {
@@ -71,7 +73,7 @@ interface TransactionDocument {
 }
 ```
 
-#### Fee Distribution Flow
+**Fee Distribution Flow**
 
 1. Platform Fee: 1% of transaction value
 2. Prize Pool: 10% of platform fee
@@ -80,15 +82,15 @@ interface TransactionDocument {
    * Indirect: 10% of remaining
 4. Platform Revenue: Remaining amount
 
-### Service Layer
+#### Service Layer
 
-#### Transaction Service
+**Transaction Service**
 
 * Handles transaction recording and fee calculations
 * Manages transaction state transitions
 * Integrates with referral and prize pool systems
 
-#### Order Execution Flow
+**Order Execution Flow**
 
 ```typescript
 async function executeSwapTransaction(
@@ -104,27 +106,27 @@ async function executeSwapTransaction(
 }
 ```
 
-### Integration Points
+#### Integration Points
 
-#### 1. Blockchain Integration
+**1. Blockchain Integration**
 
 * **Solana Connection**: Via `@solana/web3.js`
 * **Jupiter Aggregator**: For optimal swap routing
 * **QuickNode RPC**: High-performance node access
 
-#### 2. Price Feeds
+**2. Price Feeds**
 
 * DexScreener API for real-time prices
 * Price monitoring for limit orders
 * Token metadata retrieval
 
-#### 3. External Services
+**3. External Services**
 
 * Redis for session management and queues
 * MongoDB for persistent storage
 * BullMQ for asynchronous tasks
 
-### Transaction Flow
+#### Transaction Flow
 
 1.  **User Initiates Trade**
 
@@ -145,16 +147,16 @@ async function executeSwapTransaction(
        └─> Platform Revenue
     ```
 
-### System Requirements
+#### System Requirements
 
-#### Technical Requirements
+**Technical Requirements**
 
 * Node.js ≥ 20.18.3
 * Redis Server
 * MongoDB Database
 * Solana RPC Node access
 
-#### Environment Variables
+**Environment Variables**
 
 ```env
 BOT_TOKEN=telegram_bot_token
@@ -165,14 +167,14 @@ PLATFORM_FEE_PERCENTAGE=1
 ENCRYPTION_KEY=your_encryption_key
 ```
 
-#### Performance Considerations
+**Performance Considerations**
 
 * Optimized MongoDB indexes for transaction queries
 * Redis caching for frequent data access
 * BullMQ for handling high-volume tasks
 * Retry mechanisms for failed transactions
 
-### Security Measures
+#### Security Measures
 
 1. **Transaction Security**
    * Slippage protection
