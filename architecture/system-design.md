@@ -19,6 +19,35 @@ Strike Bot is a Telegram-based trading bot for Solana blockchain with the follow
 * **Data Layer**: MongoDB for persistence, Redis for sessions/queues
 * **Blockchain Layer**: Solana integration via Web3.js and Jupiter
 
+
+Strike Bot follows a microservices architecture, with several interconnected components:
+
+```
+┌───────────────────┐     ┌───────────────────┐     ┌───────────────────┐
+│                   │     │                   │     │                   │
+│   Telegram Bot    │     │   Admin Server    │     │   Background      │
+│   (grammY)        │     │   (Hono)          │     │   Workers         │
+│                   │     │                   │     │   (BullMQ)        │
+└────────┬──────────┘     └────────┬──────────┘     └────────┬──────────┘
+         │                         │                         │
+         │                         │                         │
+         ▼                         ▼                         ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                                                                        │
+│                            Redis                                       │
+│                                                                        │
+└────────────────────────────────────────────────────────────────────────┘
+         ▲                         ▲                         ▲
+         │                         │                         │
+         │                         │                         │
+┌────────┴──────────┐     ┌────────┴──────────┐     ┌────────┴──────────┐
+│                   │     │                   │     │                   │
+│    MongoDB        │     │    Solana         │     │    External       │
+│    Database       │     │    Blockchain     │     │    APIs           │
+│                   │     │                   │     │                   │
+└───────────────────┘     └───────────────────┘     └───────────────────┘
+```
+
 **Key Features**
 
 * Token trading (buy/sell)
