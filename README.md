@@ -1,106 +1,122 @@
-# Dashboard Usage Documentation for StrikeBot## Overview
-The StrikeBot Dashboard is an administrative interface designed to manage and monitor various aspects of the StrikeBot platform. It provides tools for managing users, tracking transactions, handling referrals, approving top users, and configuring settings. This document provides a detailed guide for using each functionality and page of the dashboard.---## Pages and Functionalities### **1. Dashboard Overview**
-- **Path**: `/dashboard`
-- **Description**: The main landing page of the dashboard, providing a high-level overview of key metrics and recent activities.
-- **Features**:
-  - **Recent Sales**: Displays a list of recent transactions.
-  - **Graphs and Charts**: Visualize data trends using area, bar, and pie charts.
-  - **Quick Links**: Navigate to key sections like users, referrals, and transactions.---### **2. Referrals Management**
-- **Path**: `/dashboard/referrals`
-- **Description**: Manage and track referral activities.
-- **Features**:
-  - **View Referrals**: Displays a table of all referrals with details like referral code, owner username, total rewards, and more.
-  - **Search by Telegram ID**: Use the search bar to filter referrals by `telegramId`.
-    - Example: `/dashboard/referrals?telegramId=123456789`
-  - **Pagination**: Navigate through pages of referral data.
-  - **Columns**:
-    - Referral Code
-    - Owner Username
-    - Total Rewards (Paid/Unpaid)
-    - Direct and Indirect Referrals
-    - Custom Commission Rate---### **3. Transactions Management**
-- **Path**: `/dashboard/transactions`
-- **Description**: Track and manage all user transactions.
-- **Features**:
-  - **View Transactions**: Displays a table of transactions with details like amount, transaction fee, type, and recipient Telegram ID.
-  - **Filters**:
-    - **Date Range**: Filter transactions by start and end dates.
-    - **Transaction Type**: Filter by type (e.g., deposit, withdrawal).
-  - **Search by Telegram ID**: Use the search bar to filter transactions by `telegramId`.
-  - **Pagination**: Navigate through pages of transaction data.
-  - **Columns**:
-    - Transaction ID
-    - Date
-    - Amount
-    - Transaction Fee
-    - Platform Fee
-    - Type
-    - Recipient Telegram ID---### **4. Users Management**
-- **Path**: `/dashboard/users`
-- **Description**: Manage user accounts and their statuses.
-- **Features**:
-  - **View Users**: Displays a table of all users with details like username, email, and status.
-  - **Block/Unblock Users**: Change the status of a user to block or unblock them.
-  - **Search by Username or Email**: Use the search bar to filter users.
-  - **Pagination**: Navigate through pages of user data.
-  - **Columns**:
-    - Username
-    - Email
-    - Status (Active/Blocked)
-    - Actions (Block/Unblock)---### **5. Top Users Management**
-- **Path**: `/dashboard/top-users`
-- **Description**: View and approve weekly top users.
-- **Features**:
-  - **View Weekly Winners**: Displays a list of top users for the week.
-  - **Approve Winners**: Approve users as weekly winners.
-  - **Search by Username or Telegram ID**: Use the search bar to filter top users.
-  - **Pagination**: Navigate through pages of top user data.
-  - **Columns**:
-    - Username
-    - Telegram ID
-    - Total Amount
-    - Position
-    - Actions (Approve/Reject)---### **6. Blocked Users Management**
-- **Path**: `/dashboard/blocked-user`
-- **Description**: Manage users who have been blocked from the platform.
-- **Features**:
-  - **View Blocked Users**: Displays a table of blocked users with details like username, reason for blocking, and date of blocking.
-  - **Unblock Users**: Remove a user from the blocked list.
-  - **Search by Username or Telegram ID**: Use the search bar to filter blocked users.
-  - **Pagination**: Navigate through pages of blocked user data.
-  - **Columns**:
-    - Username
-    - Telegram ID
-    - Reason for Blocking
-    - Date of Blocking
-    - Actions (Unblock)---### **7. Winners Management**
-- **Path**: `/dashboard/winners`
-- **Description**: Manage and view approved weekly winners.
-- **Features**:
-  - **View Winners**: Displays a list of approved weekly winners.
-  - **Search by Username or Telegram ID**: Use the search bar to filter winners.
-  - **Pagination**: Navigate through pages of winner data.
-  - **Columns**:
-    - Username
-    - Telegram ID
-    - Week Start Date
-    - Week End Date
-    - Total Amount---### **8. Settings**
-- **Path**: `/dashboard/settings`
-- **Description**: Configure application settings.
-- **Features**:
-  - **Update Profile**: Change admin profile details like name and email.
-  - **Change Password**: Update the admin password.
-  - **Application Settings**: Configure global settings for the platform.---## Common Features Across Pages### **Search**
-- Use the search bar to filter data by specific fields (e.g., `telegramId`, username).
-- Example: `/dashboard/referrals?telegramId=123456789`### **Pagination**
-- Navigate through pages of data using the pagination controls at the bottom of tables.### **Filters**
-- Apply filters like date range, status, or type to refine data.### **Modals**
-- Perform actions like editing or deleting records using modals.---## Troubleshooting### **Common Issues**
-1. **Data Not Loading**:
-   - Ensure the backend API is running and accessible.
-   - Verify the `BASE_URL` and `BEARER_TOKEN` in the `.env` file.2. **Search Not Working**:
-   - Check if the search parameter matches the column's accessor key.
-   - Verify the backend API supports filtering by the search parameter.3. **Pagination Issues**:
-   - Ensure the `page` and `limit` query parameters are correctly passed to the API.4. **Styling Issues**:
-   - Ensure Tailwind CSS is properly configured and the `globals.css` file is imported.---For further assistance, refer to the `CODEBASE_DOCUMENTATION.md` file or contact the development team.
+# Dashboard Technical Documentation
+
+## Table of Contents
+
+* Dashboard Architecture
+* Core Components
+* Feature Implementations
+* Data Management
+* User Interface
+* Security Implementation
+* Configuration Management
+
+### Core Technologies
+
+* **Frontend Framework**: Next.js/React
+  * Provides server-side rendering and modern UI development capabilities
+* **Styling**: Tailwind CSS
+  * Utility-first CSS framework for responsive design
+* **State Management**: React Query
+  * Powerful data-fetching and caching library
+
+### Core Implementation Structure
+
+#### Dashboard Architecture (`src/dashboard/`)
+
+* `layout.tsx`: Main dashboard layout and navigation
+* `context.tsx`: Dashboard context for state management
+* `index.tsx`: Dashboard entry point and routing
+
+**Feature Modules (`src/dashboard/features/`)**
+
+* `users.feature.tsx`: User management interface
+* `transactions.feature.tsx`: Transaction tracking system
+* `referrals.feature.tsx`: Referral management system
+* `winners.feature.tsx`: Weekly winner administration
+* `settings.feature.tsx`: Platform configuration interface
+
+**Service Layer (`src/dashboard/services/`)**
+
+```typescript
+// Example service structure
+interface DashboardService {
+  fetchUsers(): Promise<User[]>
+  updateUserStatus(id: string, status: UserStatus): Promise<void>
+  fetchTransactions(filters: TransactionFilters): Promise<Transaction[]>
+  approveWinner(userId: string, weekId: string): Promise<void>
+}
+```
+
+### Feature Implementations
+
+#### 1. User Management System
+
+```typescript
+// User management interface
+interface UserManagement {
+  users: User[]
+  blockUser(id: string): Promise<void>
+  unblockUser(id: string): Promise<void>
+  searchUsers(query: string): Promise<User[]>
+}
+```
+
+#### 2. Transaction Tracking
+
+```typescript
+// Transaction filters
+interface TransactionFilters {
+  dateRange?: DateRange
+  type?: TransactionType
+  userId?: string
+  page: number
+  limit: number
+}
+```
+
+### Data Management
+
+#### Main Collections
+
+* Users Collection
+* Transactions Collection
+* Referrals Collection
+* Weekly Winners Collection
+* Settings Collection
+
+### Security Implementation
+
+#### Authentication System
+
+* JWT-based authentication
+* Role-based access control
+* Session management
+* API security measures
+
+### Integration Points
+
+* **Backend APIs**:
+  * User management endpoints
+  * Transaction processing
+  * Winner selection system
+* **External Services**:
+  * Analytics integration
+  * Notification system
+
+### Configuration Management
+
+```typescript
+interface DashboardConfig {
+  API_BASE_URL: string
+  AUTH_TOKEN_KEY: string
+  PAGINATION_LIMIT: number
+  DATE_FORMAT: string
+}
+```
+
+For detailed implementation guides and API documentation, refer to the following sections:
+
+* [Dashboard Components](src/dashboard/components/)
+* [Feature Documentation](src/dashboard/features/)
+* [API Integration](src/dashboard/services/)
+* [Security Guidelines](src/dashboard/security/)
