@@ -113,65 +113,6 @@ Configuration from compose.prod.yml:
     sudo chmod 666 /var/run/docker.sock
     ```
 
-#### Deployment Configuration
-
-**Base Configuration (compose.yml)**
-
-```yaml
-services:
-  bot:
-    build:
-      context: .
-    networks:
-      - bot-network
-    volumes:
-      - dist-volume:/usr/src/dist
-
-  redis:
-    image: redis:alpine
-    volumes:
-      - redis-data:/data
-    networks:
-      - bot-network
-
-networks:
-  bot-network:
-    driver: bridge
-
-volumes:
-  redis-data:
-  dist-volume:
-```
-
-**Production Settings (compose.prod.yml)**
-
-```yaml
-services:
-  bot:
-    build:
-      target: production
-    container_name: strike-bot
-    restart: always
-    deploy:
-      resources:
-        limits:
-          memory: 1G
-    logging:
-      driver: json-file
-      options:
-        max-size: 50m
-        max-file: '3'
-
-  redis:
-    container_name: strike-bot-redis
-    restart: always
-    deploy:
-      resources:
-        limits:
-          memory: 2G
-    command: redis-server --appendonly yes --maxmemory 1536mb --maxmemory-policy allkeys-lru
-```
-
 #### Deployment Process
 
 1. Code Transfer:
@@ -201,7 +142,7 @@ services:
    * Maxmemory: 1536MB
    * LRU eviction policy
 
-### Monitoring and Logging Setup
+### Logging Setup
 
 #### Container Logging
 
@@ -260,41 +201,6 @@ logging:
    * Database backups
    * Environment configuration backups
 
-### Troubleshooting
-
-#### Common Issues
-
-1. Container Start Failures:
-   * Check logs: `docker logs strike-bot`
-   * Verify environment variables
-   * Check resource limits
-2. Redis Connectivity:
-   * Check network configuration
-   * Verify Redis memory usage
-   * Check connection strings
-3. Deployment Failures:
-   * Check GitHub Actions logs
-   * Verify SSH access
-   * Check disk space and permissions
-
-#### Health Checks
-
-1.  Service Health:
-
-    ```bash
-    # Check bot service
-    docker inspect strike-bot
-
-    # Check Redis service
-    docker inspect strike-bot-redis
-    ```
-2.  Network Health:
-
-    ```bash
-    # Check network connectivity
-    docker network inspect bot-network
-    ```
-
 ### Best Practices
 
 1. Security:
@@ -313,4 +219,3 @@ logging:
    * Keep deployment docs updated
    * Document all configuration changes
    * Maintain incident reports
-
