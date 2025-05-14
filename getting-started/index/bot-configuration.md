@@ -7,7 +7,6 @@
 ```typescript
 BOT_TOKEN=your_telegram_bot_token
 BOT_USERNAME=your_bot_username
-BOT_MODE=polling  // or 'webhook'
 ```
 
 #### Base Settings
@@ -57,9 +56,6 @@ Settings are managed through a layered system:
 ### 4. Middleware Configuration
 
 * Settings initialization middleware
-* Session management with Redis
-* Update logging middleware
-* Error handling middleware
 
 ### 5. Keyboard & Conversation Handlers
 
@@ -104,10 +100,3 @@ Settings are managed through a layered system:
 * PNL display options
 * Token visibility
 * Language preferences
-
-```
-
-This documentation covers the essential configuration aspects of the Strike Bot while keeping it concise and focused on the key elements needed for operation and customization.
-
-Let me know if you need more details about any specific section!
-```

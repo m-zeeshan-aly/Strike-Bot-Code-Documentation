@@ -164,34 +164,3 @@ Implemented across services:
 * Transaction validation for integrity
 * Error handling for reliability
 
-### Configuration Management
-
-#### Environment Configuration
-
-Defined in `src/environment.config.ts`:
-
-```typescript
-export interface EnvironmentConfig {
-  NODE_ENV: string;
-  BOT_TOKEN: string;
-  MONGODB_URI: string;
-  REDIS_URL: string;
-}
-```
-
-* Supports production and development environments with API keys and network settings.
-
-#### Deployment Configuration
-
-Defined in `ecosystem.config.js`:
-
-```javascript
-module.exports = {
-  apps: [{
-    name: "strike-bot",
-    script: "dist/index.js"
-  }]
-}
-```
-
-* Configures the bot for deployment with process management.
