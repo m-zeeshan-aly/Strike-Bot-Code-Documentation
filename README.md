@@ -1,197 +1,211 @@
-# Technical Stack
+# Strike Bot Technical Documentation
 
-Strike Bot is a sophisticated Telegram trading bot for the Solana blockchain, built with TypeScript and the Grammy bot framework. This document provides a comprehensive overview of the project's technical stack, detailing its implementation, architecture, and key components.
+## Project Overview
 
-### Table of Contents
+Strike Bot is a sophisticated Telegram trading bot for the Solana blockchain, built with TypeScript and the Grammy bot framework. This comprehensive documentation covers the technical implementation, architecture, and components.
 
-* Core Technologies
-* Core Implementation Structure
-* System Architecture
-* Database and Storage
-* External Integrations
-* Development Tools
-* Security Implementation
-* Configuration Management
-
-### Core Technologies
-
-* **Programming Language**: TypeScript
-  * Provides type safety and modern JavaScript features for robust development.
-* **Bot Framework**: Grammy
-  * A powerful framework for building Telegram bots with a clean and intuitive API.
-
-### Core Implementation Structure
-
-#### Bot Architecture (`src/bot/`)
-
-* `context.ts`: Custom context implementation for enhanced bot functionality.
-* `i18n.ts`: Internationalization setup for multi-language support.
-* `index.ts`: Main bot initialization and entry point.
-
-**Feature Modules (`src/bot/features/`)**
-
-* `buyToken.feature.ts`: Implements token purchase functionality.
-* `sellToken.feature.ts`: Handles token selling operations.
-* `trade.feature.ts`: Provides the core trading interface.
-* `positions.feature.ts`: Manages user positions and portfolio.
-* `limitOrder.feature.ts`: Implements the limit order system.
-
-**Service Layer (`src/bot/services/`)**
-
-* `dexScreenerPrice.service.ts`: Integrates real-time price feeds.
-* `executeSwap.service.ts`: Executes swap transactions.
-* `comission.service.ts`: Manages commission and fee handling.
-* `settings.service.ts`: Handles user settings and preferences.
-
-#### Conversation System (`conversations`)
-
-The bot features sophisticated conversation flows for seamless user interaction:
-
-* `buy-sell-settings.conversation.ts`
-* `customSolAmount.conversation.ts`
-* `slippagePercentage.conversation.ts`
-* `withdrawCustomPercentage.conversation.ts`
-
-#### Core Features
-
-**Trading System**
-
-The `TradeFeature` class manages:
-
-* Core trading functionality
-* Market order execution
-* Price monitoring
-* Transaction validation
-
-**Limit Order System**
-
-The `LimitOrderFeature` class handles:
-
-* Limit order creation
-* Price monitoring
-* Order execution
-* Order cancellation
-
-**Position Management**
-
-The `PositionsFeature` class oversees:
-
-* Position tracking
-* PnL (Profit and Loss) calculation
-* Position closing
-* Portfolio management
-
-### System Architecture
-
-#### Middleware Pipeline (`middlewares`)
-
-* `settings-init.middleware.ts`: Initializes user settings on startup.
-* `update-logger.ts`: Logs bot activities and updates.
-
-#### Service Layer Architecture
+## Documentation Structure
 
 ```
-├── Price Service (Real-time price feeds)
-├── Wallet Service (Wallet management)
-├── Commission Service (Fee handling)
-├── Swap Service (Trade execution)
-└── Settings Service (User preferences)
+📁 docs/
+├── 📁 introduction/
+│   ├── project-overview.md
+│   ├── key-features.md
+│   └── technical-stack.md
+├── 📁 getting-started/
+│   ├── prerequisites.md
+│   ├── installation.md
+│   ├── configuration.md
+│   └── quick-start.md
+├── 📁 architecture/
+│   ├── system-design.md
+│   ├── data-flow.md
+│   ├── database-schema.md
+│   └── queue-system.md
+├── 📁 core-components/
+│   ├── 📁 features/
+│   │   ├── start-feature.md
+│   │   ├── trade-feature.md
+│   │   ├── buy-token-feature.md
+│   │   ├── sell-token-feature.md
+│   │   ├── limit-order-feature.md
+│   │   ├── positions-feature.md
+│   │   ├── settings-feature.md
+│   │   ├── withdraw-feature.md
+│   │   └── referral-feature.md
+│   ├── 📁 conversations/
+│   │   ├── buy-sell-settings.md
+│   │   ├── token-address.md
+│   │   ├── custom-amounts.md
+│   │   ├── slippage-settings.md
+│   │   └── limit-orders.md
+│   ├── 📁 services/
+│   │   ├── price-service.md
+│   │   ├── wallet-service.md
+│   │   ├── commission-service.md
+│   │   ├── execute-swap-service.md
+│   │   ├── hidden-tokens-service.md
+│   │   └── settings-service.md
+│   └── 📁 middlewares/
+│       ├── settings-middleware.md
+│       └── update-logger.md
+├── 📁 server/
+│   ├── server-implementation.md
+│   ├── api-routes.md
+│   ├── 📁 routes/
+│   │   ├── user-routes.md
+│   │   ├── transaction-routes.md
+│   │   ├── weekly-winner-routes.md
+│   │   ├── constants-routes.md
+│   │   └── referral-routes.md
+│   └── 📁 controllers/
+│       ├── user-controllers.md
+│       ├── transaction-controllers.md
+│       └── weekly-winner-controllers.md
+├── 📁 configuration/
+│   ├── environment-variables.md
+│   ├── bot-configuration.md
+│   ├── database-configuration.md
+│   ├── redis-configuration.md
+│   └── queue-configuration.md
+├── 📁 deployment/
+│   ├── docker.md
+│   ├── pm2.md
+│   ├── production-setup.md
+│   └── monitoring.md
+├── 📁 testing/
+│   ├── unit-tests.md
+│   ├── integration-tests.md
+│   └── e2e-tests.md
+├── 📁 advanced-topics/
+│   ├── limit-order-system.md
+│   ├── prize-pool-system.md
+│   ├── referral-system.md
+│   └── transaction-management.md
+├── 📁 troubleshooting/
+│   ├── common-issues.md
+│   ├── error-handling.md
+│   └── debugging-guide.md
+├── 📁 api-reference/
+│   ├── internal-apis.md
+│   ├── external-apis.md
+│   └── websocket-apis.md
+└── 📁 contributing/
+    ├── development-setup.md
+    ├── coding-standards.md
+    └── pull-request-process.md
 ```
 
-#### Queue System (`queues`)
+## Content Organization
 
-* Price monitoring queue
-* Order execution queue
-* Transaction processing queue
+### Introduction
+- Project overview and purpose
+- Key features and capabilities
+- Technical stack details
+- System architecture overview
 
-### Database and Storage
+### Getting Started
+- Environment setup requirements
+- Installation procedures
+- Configuration guides
+- Quick start tutorial
 
-* **Persistent Storage**: MongoDB
-  * Used for storing user data and transaction history.
-* **Session Management**: Redis
-  * Handles session data for fast access and scalability.
-* **Queue System**: Dedicated system for order processing
-  * Ensures efficient handling of trading operations.
+### Core Components
 
-### External Integrations
+#### Bot Features
+- Trading system implementation
+- Limit order functionality
+- Position management
+- Settings and preferences
+- Referral system
 
-* **External APIs**:
-  * **Solana RPC Nodes**: Blockchain interaction and data retrieval.
-  * **Jupiter Aggregator**: Optimized trading routes and liquidity.
-  * **DexScreener Price Feed**: Real-time price data integration.
+#### Service Layer
+- Solana blockchain integration
+- Jupiter swap integration
+- Commission processing
+- Price tracking services
+- Notification system
 
-### Development Tools
+#### Workers and Queue System
+- Price monitoring implementation
+- Order execution processing
+- Transaction confirmation
+- Order expiry handling
 
-#### Build System
+### Server Implementation
 
-Defined in `package.json`:
+#### API Endpoints
+- Authentication system
+- User management
+- Transaction handling
+- Referral management
+- Weekly winners system
 
-```json
-{
-  "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts"
-  }
-}
-```
+#### Controllers
+- Request handling
+- Business logic implementation
+- Response formatting
+- Error handling
 
-* `build`: Compiles TypeScript to JavaScript.
-* `start`: Runs the compiled bot.
-* `dev`: Development mode with live reloading.
+### Deployment and Security
 
-#### Code Quality
+#### Deployment Options
+- Docker containerization
+- PM2 process management
+- Scaling considerations
+- Production setup
 
-* **TypeScript**: Ensures type safety across the codebase.
-* **ESLint**: Maintains code quality and consistency.
-* **Docker**: Provides containerization for deployment and testing.
+#### Security Measures
+- Wallet encryption
+- API security
+- Rate limiting
+- Access control
 
-### Security Implementation
+### Maintenance and Support
 
-#### Wallet Security
+#### Troubleshooting
+- Common issues and solutions
+- Logging system
+- Monitoring tools
 
-Implemented in `src/bot/helpers/walletService.helper.ts`:
+#### System Updates
+- Database maintenance
+- Token rotation procedures
+- Update processes
 
-* Encrypted private key storage
-* Secure transaction signing
-* Rate limiting to prevent abuse
+## File Descriptions
 
-#### Transaction Safety
+Each markdown file in the documentation follows this structure:
 
-Implemented across services:
+1. Overview section
+2. Implementation details
+3. Configuration options
+4. Code examples
+5. Best practices
+6. Related topics
 
-* Slippage protection for stable trading
-* Transaction validation for integrity
-* Error handling for reliability
+## Content Guidelines
 
-### Configuration Management
+- Each section should be self-contained
+- Include practical examples
+- Provide clear implementation steps
+- Link to related documentation
+- Include troubleshooting tips
 
-#### Environment Configuration
+## Documentation Updates
 
-Defined in `src/environment.config.ts`:
+The documentation should be updated when:
 
-```typescript
-export interface EnvironmentConfig {
-  NODE_ENV: string;
-  BOT_TOKEN: string;
-  MONGODB_URI: string;
-  REDIS_URL: string;
-}
-```
+1. New features are added
+2. APIs are modified
+3. Configuration options change
+4. Best practices evolve
 
-* Supports production and development environments with API keys and network settings.
+## Contributing
 
-#### Deployment Configuration
+See the [contributing guide](contributing/development-setup.md) for details on:
 
-Defined in `ecosystem.config.js`:
-
-```javascript
-module.exports = {
-  apps: [{
-    name: "strike-bot",
-    script: "dist/index.js"
-  }]
-}
-```
-
-* Configures the bot for deployment with process management.
+- Setting up the development environment
+- Code submission guidelines
+- Documentation standards
+- Review process
