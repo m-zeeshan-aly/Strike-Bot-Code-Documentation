@@ -2,9 +2,9 @@
 
 ## Introduction
 
-* [Project Overview](introduction/project-overview.md)
+* [Project Overview](README.md)
 * [Key Features](introduction/key-features.md)
-* [Technical Stack](README.md)
+* [Technical Stack](<README (1).md>)
 
 ## Getting Started
 
@@ -18,13 +18,10 @@
   * [Redis Configuration](getting-started/index/redis-configuration.md)
   * [Queue Configuration](getting-started/index/queue-configuration.md)
 
-
 ## Deployment
 
 * [Docker Deployment](deployment/docker.md)
-* [PM2 Deployment](deployment/pm2.md)
 * [Production Setup](deployment/production-setup.md)
-* [Monitoring](deployment/monitoring.md)
 
 ## Core Components
 
@@ -41,7 +38,6 @@
   * [Settings Service](core-components/index/settings-service.md)
 * [Middlewares](core-components/index-1/README.md)
   * [Settings Middleware](core-components/index-1/settings-middleware.md)
-
 
 ## Architecture
 
