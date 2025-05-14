@@ -21,7 +21,7 @@
 ## Deployment
 
 * [Docker Deployment](deployment/docker.md)
-* [Production Setup](deployment/production-setup.md)
+* [Production Deployment](deployment/production-setup.md)
 
 ## Core Components
 

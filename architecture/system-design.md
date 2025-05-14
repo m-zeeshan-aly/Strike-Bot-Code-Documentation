@@ -19,7 +19,6 @@ Strike Bot is a Telegram-based trading bot for Solana blockchain with the follow
 * **Data Layer**: MongoDB for persistence, Redis for sessions/queues
 * **Blockchain Layer**: Solana integration via Web3.js and Jupiter
 
-
 Strike Bot follows a microservices architecture, with several interconnected components:
 
 ```
@@ -187,11 +186,8 @@ async function executeSwapTransaction(
 
 ```env
 BOT_TOKEN=telegram_bot_token
-MONGO_URI=mongodb://connection_string
-REDIS_SERVER_URL=redis://localhost:6379
-QUICKNODE_API_KEY=your_api_key
-PLATFORM_FEE_PERCENTAGE=1
-ENCRYPTION_KEY=your_encryption_key
+MONGO_URI=mongodb:
+// Other Enviornment Veriables
 ```
 
 **Performance Considerations**

@@ -1,40 +1,12 @@
-# Production Setup
+# Production Deployment
 
-````markdown
-# Production Setup Guide
-
-## Overview
+#### Overview
 
 This guide details the production deployment setup for the Strike Bot on AWS EC2, including environment configuration, security considerations, and monitoring setup.
 
-## Production Environment Setup
-
-### Environment Variables
-The production environment is configured through `.env.bot.prod` with the following structure:
-
-```env
-# Bot Configuration
-BOT_TOKEN=<your-bot-token>
-
-# Solana Configuration
-RPC_URL="https://api.mainnet-beta.solana.com"
-PLATFORM_FEE_WALLET_ADDRESS="<wallet-address>"
-
-# Database Configuration
-MONGO_URI="postgresql://postgres:postgres@postgres:5432/telegram_bot"
-
-# Redis Configuration
-REDIS_SERVER_URL='redis://redis:6379/0'
-
-# Security Keys
-ENCRYPTION_KEY="<your-encryption-key>"
-IV_KEY="<your-iv-key>"
-
-# API Keys
-BIRDEYE_API_KEY="<your-birdeye-api-key>"
-QUIKNODE_RPC_URL="<your-quicknode-url>"
-
-````
+```
+# Include Enviornment Veriables
+```
 
 #### Database Configuration
 
@@ -77,7 +49,6 @@ Configuration from compose.prod.yml:
    * IV\_KEY
    * Stored securely in environment variables
 3. API Keys:
-   * BIRDEYE\_API\_KEY
    * QUIKNODE\_RPC\_URL
    * Managed through secure environment variables
 
