@@ -88,4 +88,6 @@ Strike Bot will **never** ask for:
 
 #### **Commitment to Security** <a href="#commitment-to-security" id="commitment-to-security"></a>
 
-Security is an ongoing process, not a static feature. Strike Bot continuously improves security measures and welcomes community feedback. If you have suggestions or concerns, please contact us through official channels.Remember: The security of blockchain is in its transparency. If something can't be verified on-chain, question it.
+Security is an ongoing process, not a static feature. Strike Bot continuously improves security measures and welcomes community feedback. If you have suggestions or concerns, please contact us through official channels.
+
+Remember: The security of blockchain is in its transparency. If something can't be verified on-chain, question it.
