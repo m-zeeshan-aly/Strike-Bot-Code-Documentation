@@ -31,4 +31,4 @@
 
 ## Security & transparnecy
 
-* [Page 1](security-and-transparnecy/page-1.md)
+* [Security & Transparency](security-and-transparnecy/security-and-transparency.md)
