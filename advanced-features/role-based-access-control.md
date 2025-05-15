@@ -35,83 +35,24 @@ The dashboard supports different user roles with varying levels of access:
 
 #### Viewer Role
 
-* Limited access to view data without modification capabilities
-* Can view dashboards and reports
-* Cannot make changes to users or settings
-* Cannot approve or reject winners
-* No access to sensitive financial information
+* Limited access to view data without modification
+
+
 
 ### Role Permissions Matrix
 
 The following table outlines specific permissions for each role:
 
-| Feature             | Admin | Viewer  |
-| ------------------- | ----- | ------- |
-| View Dashboard      | ✓     | ✓       |
-| View User List      | ✓     | ✓       |
-| Edit Users          | ✓     | ✗       |
-| Block Users         | ✓     | ✗       |
-| Manage Teams        | ✓     | ✗       |
-| View Transactions   | ✓     | ✓       |
-| View Referrals      | ✓     | ✓       |
-| Edit Referrals      | ✓     | ✗       |
-| Approve Winners     | ✓     | ✗       |
-| Modify Settings     | ✓     | ✗       |
-| Access Admin Wallet | ✓     | ✗       |
-| Export Data         | ✓     | Limited |
-
-### Managing Users and Roles
-
-To manage users and their roles:
-
-1. Navigate to **Dashboard > Teams**
-2. From here you can:
-   * Add new admin users or viewers
-   * Modify existing user roles
-   * Remove users from teams when access is no longer needed
-
-### Adding a New User
-
-To add a new user with a specific role:
-
-1. Click "Add User" button in the Teams section
-2. Enter the user's information
-3. Select the appropriate role from the dropdown
-4. Save the changes
-
-### Changing a User's Role
-
-To change an existing user's role:
-
-1. Find the user in the Teams section
-2. Click "Edit" for that user
-3. Select the new role from the dropdown
-4. Save the changes
-
-### Revoking Access
-
-To remove a user's access to the dashboard:
-
-1. Find the user in the Teams section
-2. Click "Remove" for that user
-3. Confirm the removal
-4. The user will no longer be able to access the dashboard
-
-### Access Logs
-
-For security purposes, the system maintains detailed access logs:
-
-* Login attempts (successful and failed)
-* Feature access
-* Changes to user permissions
-* System setting modifications
-
-Administrators can review these logs from the Security section of the dashboard.
-
-### Best Practices for Access Control
-
-* Regularly review user access and remove unnecessary accounts
-* Assign the minimum necessary permissions for each user
-* Change admin passwords periodically
-* Monitor access logs for unusual activity
-* Implement two-factor authentication for sensitive operations
+| Feature             | Admin | Viewer |
+| ------------------- | ----- | ------ |
+| View Dashboard      | ✓     | ✓      |
+| View User List      | ✓     | ✗      |
+| Edit Users          | ✓     | ✗      |
+| Block Users         | ✓     | ✗      |
+| Manage Teams        | ✓     | ✗      |
+| View Transactions   | ✓     | ✗      |
+| View Referrals      | ✓     | ✗      |
+| Edit Referrals      | ✓     | ✗      |
+| Approve Winners     | ✓     | ✗      |
+| Modify Settings     | ✓     | ✗      |
+| Access Admin Wallet | ✓     | ✗      |

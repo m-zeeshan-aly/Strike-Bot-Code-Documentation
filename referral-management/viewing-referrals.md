@@ -32,37 +32,10 @@ The referral system tracks two types of referrals:
 
 * Users directly invited by a referrer
 * First-level connections in the referral network
-* Generate primary commission for the referrer
+
+
 
 #### Indirect Referrals
 
 * Users invited by direct referrals
 * Second-level connections in the referral network
-* Generate secondary commission for the original referrer
-
-### Referral Performance Metrics
-
-The Referrals section includes key performance metrics:
-
-* Total number of referrals
-* Conversion rate of referral links
-* Total commission generated through referrals
-* Top-performing referrers
-
-### Referral Network Visualization
-
-The referral network can be visualized:
-
-1. Click the "View Network" button at the top of the Referrals section
-2. See a hierarchical tree visualization of referral relationships
-3. Zoom and pan to explore large networks
-4. Click on any node to see detailed information about that user
-
-### Exporting Referral Data
-
-Export referral data for offline analysis:
-
-1. Click the "Export" button above the referrals table
-2. Select your preferred format (CSV, Excel, PDF)
-3. Choose which data to include in the export
-4. Click "Export" to download the file

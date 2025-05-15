@@ -19,55 +19,18 @@ The User Detail page displays with the following sections:
 
 #### User Profile Information
 
-* Personal details (name, email, registration date)
-* Contact information
-* Account status and activity metrics
-* User role and permissions
+* User Name
+* Total Transactions
+* Total Volume
+* Is Blocked&#x20;
+* Wallet Address (option to copy)
 
 #### Referrals
 
-* List of referrals made by this user
-* Referral performance metrics
-* Referral commission information
-* Referral network visualization
+* List of referrals
+
+
 
 #### Transactions
 
-* Transaction history associated with this user
-* Transaction types and amounts
-* Transaction statuses and timestamps
-* Transaction trends and patterns
-
-### User Activity Timeline
-
-The user detail page includes a chronological timeline of the user's activities:
-
-* Account creation and updates
-* Login history and locations
-* Feature usage patterns
-* Interaction with other users
-
-### User Metrics Dashboard
-
-View key performance metrics specific to this user:
-
-* Total transaction volume
-* Activity frequency
-* Referral efficiency
-* Comparison to platform averages
-
-### Actions Available
-
-From the user detail page, administrators can:
-
-* Edit user information
-* Modify user permissions
-* Block or unblock the user
-* Reset user credentials
-* View or download user activity reports
-
-The user detail page provides a comprehensive view of all user activity in one place, allowing admins to:
-
-* Monitor user engagement
-* Track referral performance
-* Review transaction history
+* List of all transactions performed by that user

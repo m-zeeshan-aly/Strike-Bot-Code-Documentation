@@ -12,7 +12,6 @@
 
 * [Key Performance Metrics](main-dashboard/key-performance-metrics.md)
 * [Charts and Graphs](main-dashboard/charts-and-graphs.md)
-* [Recent Activity](main-dashboard/recent-activity.md)
 
 ## User Management
 
@@ -37,12 +36,10 @@
 ## Top Users Section
 
 * [Weekly Top Users](top-users-section/weekly-top-users.md)
-* [Performance Tracking](top-users-section/performance-tracking.md)
 
 ## Referral Management
 
 * [Viewing Referrals](referral-management/viewing-referrals.md)
-* [Managing Referrals](referral-management/managing-referrals.md)
 
 ## Winners Management
 
@@ -54,7 +51,6 @@
 
 * [Referral Commission Settings](settings/referral-commission-settings.md)
 * [Winner Prize Settings](settings/winner-prize-settings.md)
-* [Admin Wallet Balance](settings/admin-wallet-balance.md)
 
 ## Advanced Features
 

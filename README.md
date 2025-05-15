@@ -18,13 +18,9 @@ This documentation is organized into sections based on different features and fu
 
 * User and team management
 * Transaction tracking and management
-* Referral program management
-* Weekly competition and winner management
-* Comprehensive analytics and reporting
+* Referrals management
+* Weekly winners management
+* Comprehensive analytics
 * Role-based access control
-
-## Regular Updates
-
-This documentation is regularly updated to reflect the latest features and improvements to the Strikebot Dashboard.
-
-_Last updated: May 15, 2025_
+* Blocked Users
+* Settings
