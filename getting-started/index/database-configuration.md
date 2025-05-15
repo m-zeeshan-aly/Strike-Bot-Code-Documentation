@@ -7,7 +7,7 @@
 import mongoose from 'mongoose'
 
 await mongoose.connect(env.MONGO_URI, {
-  dbName: 'volume-bot'
+      dbName: env.MONGO_DB_NAME,
 })
 ```
 
@@ -98,4 +98,3 @@ try {
 3. Create indexes for frequently queried fields
 4. Implement proper error handling
 5. Use transactions for critical operations
-

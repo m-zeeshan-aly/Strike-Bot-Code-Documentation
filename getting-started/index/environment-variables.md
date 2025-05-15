@@ -38,6 +38,7 @@ PLATFORM_FEE_PERCENTAGE="2.5"
 
 # Database Configuration
 MONGO_URI="mongodb://localhost:27017/strike-bot"
+MONGO_DB_NAME = "StrikeBot etc"
 
 # Redis Configuration
 REDIS_SERVER_URL="redis://redis:6379/0"
