@@ -8,57 +8,54 @@ The **Strikebot Dashboard** is a powerful admin dashboard built to manage and mo
 
 The dashboard provides a centralized interface for administrators to:
 
-- Monitor user activities and interactions
-- Manage user accounts and permissions
-- Track transactions and referrals
-- Identify and manage top performers
-- Configure system settings
-- View comprehensive analytics and reports
+* Monitor user activities and interactions
+* Manage user accounts and permissions
+* Track transactions and referrals
+* Identify and manage top performers
+* Configure system settings
+* View comprehensive analytics and reports
 
 ## Key Features
 
 The Strikebot Dashboard includes several key features designed to streamline administrative operations:
 
 ### User Management
-- Comprehensive user profile management
-- User blocking and restriction capabilities
-- Detailed user activity tracking
-- Multi-level user permissions (Admin and Viewer roles)
+
+* Comprehensive user profile management
+* User blocking and restriction capabilities
+* Detailed user activity tracking
+* Multi-level user permissions (Admin and Viewer roles)
 
 ### Analytics Dashboard
-- Real-time data visualization
-- Customizable charts and graphs
-- Performance metrics and KPIs
-- Export functionality for reports
+
+* Real-time data visualization
+* Customizable charts and graphs
+* Performance metrics and KPIs
+* Export functionality for reports
 
 ### Team Management
-- Team creation and assignment
-- Team performance tracking
-- Role-based permissions within teams
+
+* Team creation and assignment
+* Team performance tracking
+* Role-based permissions within teams
 
 ### Transaction Monitoring
-- Real-time transaction tracking
-- Transaction history and logs
-- Filter and search capabilities
+
+* Real-time transaction tracking
+* Transaction history and logs
+* Filter and search capabilities
 
 ### Referral System
-- Referral tracking and management
-- Referral performance metrics
-- Referral reward management
+
+* Referral tracking and management
+* Referral performance metrics
+* Referral reward management
 
 ### Winner Management
-- Winner identification and verification
-- Prize distribution tracking
-- Winner notification system
 
-## Audience
-
-This dashboard is designed for:
-
-- System administrators
-- Operations managers
-- Customer support teams
-- Data analysts
+* Winner identification and verification
+* Prize distribution tracking
+* Winner notification system
 
 ## Technical Overview
 

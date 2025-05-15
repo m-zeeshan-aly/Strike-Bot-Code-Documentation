@@ -13,7 +13,7 @@ The Strikebot Dashboard uses environment variables for configuration. These are 
 DATABASE_URL="postgresql://username:password@host:port/database?sslmode=require"
 ```
 
-- **DATABASE_URL**: The connection string for your PostgreSQL database. This should include your username, password, host, port, and database name.
+* **DATABASE\_URL**: The connection string for your PostgreSQL database. This should include your username, password, host, port, and database name.
 
 ### MongoDB Configuration (Optional)
 
@@ -23,8 +23,8 @@ MONGODB_URI="mongodb+srv://username:password@cluster.mongodb.net/database"
 MONGODB_DB="database_name"
 ```
 
-- **MONGODB_URI**: The connection string for your MongoDB database.
-- **MONGODB_DB**: The name of your MongoDB database.
+* **MONGODB\_URI**: The connection string for your MongoDB database.
+* **MONGODB\_DB**: The name of your MongoDB database.
 
 ### NextAuth Configuration
 
@@ -39,10 +39,10 @@ NEXTAUTH_DEBUG=false
 ADMIN_EMAIL="admin@example.com"
 ```
 
-- **NEXTAUTH_URL**: The base URL of your website. In development, this is typically `http://localhost:3000`.
-- **NEXTAUTH_SECRET**: A secure random string used to encrypt cookies and tokens. Generate this using `openssl rand -base64 32`.
-- **NEXTAUTH_DEBUG**: Set to `true` to enable NextAuth.js debugging.
-- **ADMIN_EMAIL**: The email address that will be granted admin privileges. This user will have access to all dashboard features.
+* **NEXTAUTH\_URL**: The base URL of your website. In development, this is typically `http://localhost:3000`.
+* **NEXTAUTH\_SECRET**: A secure random string used to encrypt cookies and tokens. Generate this using `openssl rand -base64 32`.
+* **NEXTAUTH\_DEBUG**: Set to `true` to enable NextAuth.js debugging.
+* **ADMIN\_EMAIL**: The email address that will be granted admin privileges. This user will have access to all dashboard features.
 
 ### Email Server Configuration
 
@@ -55,11 +55,11 @@ EMAIL_SERVER_PORT=465  # Typically 465 for SSL or 587 for TLS
 EMAIL_FROM="noreply@example.com"  # The sender address shown in emails
 ```
 
-- **EMAIL_SERVER_USER**: The username for your SMTP server.
-- **EMAIL_SERVER_PASSWORD**: The password for your SMTP server.
-- **EMAIL_SERVER_HOST**: The hostname of your SMTP server.
-- **EMAIL_SERVER_PORT**: The port of your SMTP server. Typically 465 for SSL or 587 for TLS.
-- **EMAIL_FROM**: The email address that will appear as the sender in emails sent by the system.
+* **EMAIL\_SERVER\_USER**: The username for your SMTP server.
+* **EMAIL\_SERVER\_PASSWORD**: The password for your SMTP server.
+* **EMAIL\_SERVER\_HOST**: The hostname of your SMTP server.
+* **EMAIL\_SERVER\_PORT**: The port of your SMTP server. Typically 465 for SSL or 587 for TLS.
+* **EMAIL\_FROM**: The email address that will appear as the sender in emails sent by the system.
 
 ### File Upload Configuration
 
@@ -69,8 +69,8 @@ UPLOADTHING_SECRET="your-uploadthing-secret-key"
 UPLOADTHING_APP_ID="your-uploadthing-app-id"
 ```
 
-- **UPLOADTHING_SECRET**: Your Uploadthing secret key.
-- **UPLOADTHING_APP_ID**: Your Uploadthing app ID.
+* **UPLOADTHING\_SECRET**: Your Uploadthing secret key.
+* **UPLOADTHING\_APP\_ID**: Your Uploadthing app ID.
 
 ### API Proxy Settings
 
@@ -80,8 +80,8 @@ API_BASE_URL="https://api.example.com"
 API_KEY="your-api-key"
 ```
 
-- **API_BASE_URL**: The base URL for API proxy requests.
-- **API_KEY**: The API key for authenticated requests.
+* **API\_BASE\_URL**: The base URL for API proxy requests.
+* **API\_KEY**: The API key for authenticated requests.
 
 ## Role-Based Access Control
 
@@ -93,21 +93,23 @@ The Strikebot Dashboard implements role-based access control with two primary ro
 ### Admin Role
 
 Admins have access to:
-- User management (create, update, delete)
-- Team management
-- System settings
-- All data visualizations
-- All reports and analytics
-- Transaction management
-- Winner management
+
+* User management (create, update, delete)
+* Team management
+* System settings
+* All data visualizations
+* All reports and analytics
+* Transaction management
+* Winner management
 
 ### Viewer Role
 
 Viewers have access to:
-- Main dashboard page
-- Basic data visualizations
-- Limited reports and analytics
-- Read-only access to user data
+
+* Main dashboard page
+* Basic data visualizations
+* Limited reports and analytics
+* Read-only access to user data
 
 ### Assigning Roles
 
@@ -118,10 +120,6 @@ The initial admin user is determined by the `ADMIN_EMAIL` environment variable. 
 ### Email Authentication
 
 Email authentication is enabled by default and configured using the Email Server Configuration environment variables. This allows users to sign in using their email address and a magic link.
-
-### File Uploads
-
-File uploads are handled by Uploadthing and configured using the File Upload Configuration environment variables. This allows users to upload files such as profile pictures, documents, etc.
 
 ### API Proxy
 
@@ -145,9 +143,9 @@ For production deployments, it's recommended to optimize your database for perfo
 
 If you encounter issues with your configuration, check the following:
 
-- Ensure all required environment variables are correctly set in your `.env` file.
-- Check that your database connection strings are correct and that your databases are accessible.
-- Verify that your SMTP server is correctly configured and accessible.
-- Check the application logs for any error messages related to configuration.
+* Ensure all required environment variables are correctly set in your `.env` file.
+* Check that your database connection strings are correct and that your databases are accessible.
+* Verify that your SMTP server is correctly configured and accessible.
+* Check the application logs for any error messages related to configuration.
 
-For more detailed troubleshooting, consult the [Troubleshooting Guide](../troubleshooting/index.md).
+For more detailed troubleshooting, consult the [Troubleshooting Guide](broken-reference).

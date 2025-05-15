@@ -18,8 +18,6 @@
     * [Installation Guide](guides/installation/index.md)
   * [running](guides/running/README.md)
     * [Running the Application](guides/running/index.md)
-  * [troubleshooting](guides/troubleshooting/README.md)
-    * [Troubleshooting Guide](guides/troubleshooting/index.md)
   * [usage](guides/usage/README.md)
     * [Usage Guide](guides/usage/index.md)
 
@@ -34,10 +32,6 @@
 ## Component
 
 * [Component Library](component/index.md)
-
-## contributing
-
-* [Contributing Guidelines](contributing/index.md)
 
 ## Overview
 

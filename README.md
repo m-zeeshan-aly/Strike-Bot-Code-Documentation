@@ -21,11 +21,10 @@ This documentation is organized into several sections, each focusing on a differ
 * [Configuration Guide](guides/configuration/index.md)
 * [Running Guide](guides/running/index.md)
 * [Usage Guide](guides/usage/index.md)
-* [Troubleshooting Guide](guides/troubleshooting/index.md)
 * [API Reference](api-reference/index.md)
 * [Technology Stack](tech-stack/index.md)
 * [Component Library](component/index.md)
 
 ## Support
 
-If you encounter any issues or have questions not covered in this documentation, please refer to the [troubleshooting guide](guides/troubleshooting/index.md) or reach out to our support team.
+If you encounter any issues or have questions not covered in this documentation, please refer to the [troubleshooting guide](broken-reference) or reach out to our support team.

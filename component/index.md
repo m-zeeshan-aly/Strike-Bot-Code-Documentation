@@ -6,13 +6,13 @@ This section provides comprehensive documentation for the frontend components us
 
 The Strikebot Dashboard uses a modular component architecture to ensure maintainability, reusability, and consistency throughout the application. Components are organized into several categories:
 
-- [UI Components](#ui-components): Basic UI elements built with shadcn-ui
-- [Chart Components](#chart-components): Data visualization components built with Recharts
-- [Form Components](#form-components): Input and form-related components
-- [Layout Components](#layout-components): Page layout and structural components
-- [Table Components](#table-components): Data table components built with TanStack Table
-- [Kanban Components](#kanban-components): Kanban board components built with dnd-kit
-- [Modal Components](#modal-components): Modal dialog components
+* [UI Components](index.md#ui-components): Basic UI elements built with shadcn-ui
+* [Chart Components](index.md#chart-components): Data visualization components built with Recharts
+* [Form Components](index.md#form-components): Input and form-related components
+* [Layout Components](index.md#layout-components): Page layout and structural components
+* [Table Components](index.md#table-components): Data table components built with TanStack Table
+* [Kanban Components](index.md#kanban-components): Kanban board components built with dnd-kit
+* [Modal Components](index.md#modal-components): Modal dialog components
 
 ## UI Components
 
@@ -42,11 +42,11 @@ import { Button } from '@/components/ui/button';
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'default' \| 'destructive' \| 'outline' \| 'secondary' \| 'ghost' \| 'link'` | `'default'` | The variant of the button |
-| `size` | `'default' \| 'sm' \| 'lg'` | `'default'` | The size of the button |
-| `asChild` | `boolean` | `false` | Whether to render as a child component |
+| Prop      | Type                                                                          | Default     | Description                            |
+| --------- | ----------------------------------------------------------------------------- | ----------- | -------------------------------------- |
+| `variant` | `'default' \| 'destructive' \| 'outline' \| 'secondary' \| 'ghost' \| 'link'` | `'default'` | The variant of the button              |
+| `size`    | `'default' \| 'sm' \| 'lg'`                                                   | `'default'` | The size of the button                 |
+| `asChild` | `boolean`                                                                     | `false`     | Whether to render as a child component |
 
 ### Card
 
@@ -55,20 +55,99 @@ The Card component is used to group related information.
 **Usage:**
 
 ```tsx
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import * as React from 'react';
 
-<Card>
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Card Description</CardDescription>
-  </CardHeader>
-  <CardContent>
-    <p>Card Content</p>
-  </CardContent>
-  <CardFooter>
-    <p>Card Footer</p>
-  </CardFooter>
-</Card>
+import { cn } from '@/lib/utils';
+
+function Card({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot='card'
+      className={cn(
+        'bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot='card-header'
+      className={cn(
+        '@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6',
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+function CardTitle({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot='card-title'
+      className={cn('leading-none font-semibold', className)}
+      {...props}
+    />
+  );
+}
+
+function CardDescription({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot='card-description'
+      className={cn('text-muted-foreground text-sm', className)}
+      {...props}
+    />
+  );
+}
+
+function CardAction({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot='card-action'
+      className={cn(
+        'col-start-2 row-span-2 row-start-1 self-start justify-self-end',
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+function CardContent({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot='card-content'
+      className={cn('px-6', className)}
+      {...props}
+    />
+  );
+}
+
+function CardFooter({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot='card-footer'
+      className={cn('flex items-center px-6 [.border-t]:pt-6', className)}
+      {...props}
+    />
+  );
+}
+
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardAction,
+  CardDescription,
+  CardContent
+};
+
 ```
 
 ### Data Table
@@ -86,13 +165,13 @@ import { columns } from './columns';
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `columns` | `ColumnDef[]` | Required | The column definitions for the table |
-| `data` | `T[]` | Required | The data to display in the table |
-| `searchKey` | `string` | - | The key to search in the data |
-| `searchPlaceholder` | `string` | - | The placeholder for the search input |
-| `pagination` | `boolean` | `true` | Whether to show pagination |
+| Prop                | Type          | Default  | Description                          |
+| ------------------- | ------------- | -------- | ------------------------------------ |
+| `columns`           | `ColumnDef[]` | Required | The column definitions for the table |
+| `data`              | `T[]`         | Required | The data to display in the table     |
+| `searchKey`         | `string`      | -        | The key to search in the data        |
+| `searchPlaceholder` | `string`      | -        | The placeholder for the search input |
+| `pagination`        | `boolean`     | `true`   | Whether to show pagination           |
 
 ## Chart Components
 
@@ -119,14 +198,14 @@ import { AreaGraph } from '@/components/charts/area-graph';
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `data` | `object[]` | Required | The data for the chart |
-| `xDataKey` | `string` | Required | The key for the x-axis data |
-| `yDataKey` | `string` | Required | The key for the y-axis data |
-| `fill` | `string` | `'#8884d8'` | The fill color for the area |
-| `stroke` | `string` | `'#8884d8'` | The stroke color for the line |
-| `height` | `number` | `300` | The height of the chart |
+| Prop       | Type       | Default     | Description                   |
+| ---------- | ---------- | ----------- | ----------------------------- |
+| `data`     | `object[]` | Required    | The data for the chart        |
+| `xDataKey` | `string`   | Required    | The key for the x-axis data   |
+| `yDataKey` | `string`   | Required    | The key for the y-axis data   |
+| `fill`     | `string`   | `'#8884d8'` | The fill color for the area   |
+| `stroke`   | `string`   | `'#8884d8'` | The stroke color for the line |
+| `height`   | `number`   | `300`       | The height of the chart       |
 
 ### Bar Graph
 
@@ -194,10 +273,10 @@ import { NewUserForm } from '@/components/forms/new-user-form';
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `onSuccess` | `(data: User) => void` | Required | Callback when form is successfully submitted |
-| `defaultValues` | `Partial<User>` | `{}` | Default values for the form |
+| Prop            | Type                   | Default  | Description                                  |
+| --------------- | ---------------------- | -------- | -------------------------------------------- |
+| `onSuccess`     | `(data: User) => void` | Required | Callback when form is successfully submitted |
+| `defaultValues` | `Partial<User>`        | `{}`     | Default values for the form                  |
 
 ### User Profile Stepper
 
@@ -213,8 +292,8 @@ import { UserProfileStepper } from '@/components/forms/user-profile-stepper';
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop     | Type     | Default  | Description        |
+| -------- | -------- | -------- | ------------------ |
 | `userId` | `string` | Required | The ID of the user |
 
 ## Layout Components
@@ -261,11 +340,11 @@ import { PageContainer } from '@/components/layout/page-container';
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `title` | `string` | Required | The title of the page |
-| `description` | `string` | - | The description of the page |
-| `children` | `ReactNode` | Required | The content of the page |
+| Prop          | Type        | Default  | Description                 |
+| ------------- | ----------- | -------- | --------------------------- |
+| `title`       | `string`    | Required | The title of the page       |
+| `description` | `string`    | -        | The description of the page |
+| `children`    | `ReactNode` | Required | The content of the page     |
 
 ## Table Components
 
@@ -325,9 +404,9 @@ import { KanbanBoard } from '@/components/kanban/kanban-board';
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `tasks` | `Task[]` | Required | The tasks to display |
+| Prop         | Type                                                                   | Default  | Description                   |
+| ------------ | ---------------------------------------------------------------------- | -------- | ----------------------------- |
+| `tasks`      | `Task[]`                                                               | Required | The tasks to display          |
 | `onTaskMove` | `(taskId: string, sourceColumn: string, targetColumn: string) => void` | Required | Callback when a task is moved |
 
 ### Board Column
@@ -370,12 +449,12 @@ import { Modal } from '@/components/modal';
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `isOpen` | `boolean` | Required | Whether the modal is open |
-| `onClose` | `() => void` | Required | Callback when the modal is closed |
-| `title` | `string` | Required | The title of the modal |
-| `children` | `ReactNode` | Required | The content of the modal |
+| Prop       | Type         | Default  | Description                       |
+| ---------- | ------------ | -------- | --------------------------------- |
+| `isOpen`   | `boolean`    | Required | Whether the modal is open         |
+| `onClose`  | `() => void` | Required | Callback when the modal is closed |
+| `title`    | `string`     | Required | The title of the modal            |
+| `children` | `ReactNode`  | Required | The content of the modal          |
 
 ## Best Practices
 
