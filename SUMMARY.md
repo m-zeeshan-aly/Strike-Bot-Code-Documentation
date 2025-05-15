@@ -1,61 +1,51 @@
-# Table of contents
+# Summary
 
-* [Introduction](README.md)
+* [Introduction](docs/introduction.md)
 
 ## Getting Started
-
-* [Logging In](getting-started/logging-in.md)
-* [Dashboard Overview](getting-started/dashboard-overview.md)
-* [Navigation](getting-started/navigation.md)
+* [Logging In](docs/getting-started/logging-in.md)
+* [Dashboard Overview](docs/getting-started/dashboard-overview.md)
+* [Navigation](docs/getting-started/navigation.md)
 
 ## Main Dashboard
-
-* [Key Performance Metrics](main-dashboard/key-performance-metrics.md)
-* [Charts and Graphs](main-dashboard/charts-and-graphs.md)
-* [Recent Activity](main-dashboard/recent-activity.md)
+* [Key Performance Metrics](docs/main-dashboard/key-performance-metrics.md)
+* [Charts and Graphs](docs/main-dashboard/charts-and-graphs.md)
+* [Recent Activity](docs/main-dashboard/recent-activity.md)
 
 ## User Management
-
-* [Viewing Users](user-management/viewing-users.md)
-* [User Details](user-management/user-details.md)
-* [Adding New Users](user-management/adding-new-users.md)
-* [Editing Users](user-management/editing-users.md)
-* [Blocking Users](user-management/blocking-users.md)
+* [Viewing Users](docs/user-management/viewing-users.md)
+* [User Details](docs/user-management/user-details.md)
+* [Adding New Users](docs/user-management/adding-new-users.md)
+* [Editing Users](docs/user-management/editing-users.md)
+* [Blocking Users](docs/user-management/blocking-users.md)
 
 ## Team Management
-
-* [Team Overview](team-management/team-overview.md)
-* [Creating Teams](team-management/creating-teams.md)
-* [Managing Team Members](team-management/managing-team-members.md)
+* [Team Overview](docs/team-management/team-overview.md)
+* [Creating Teams](docs/team-management/creating-teams.md)
+* [Managing Team Members](docs/team-management/managing-team-members.md)
 
 ## Transaction Management
-
-* [Transaction List](transaction-management/transaction-list.md)
-* [Transaction Details](transaction-management/transaction-details.md)
-* [Filtering Transactions](transaction-management/filtering-transactions.md)
+* [Transaction List](docs/transaction-management/transaction-list.md)
+* [Transaction Details](docs/transaction-management/transaction-details.md)
+* [Filtering Transactions](docs/transaction-management/filtering-transactions.md)
 
 ## Top Users Section
-
-* [Weekly Top Users](top-users-section/weekly-top-users.md)
-* [Performance Tracking](top-users-section/performance-tracking.md)
+* [Weekly Top Users](docs/top-users/weekly-top-users.md)
+* [Performance Tracking](docs/top-users/performance-tracking.md)
 
 ## Referral Management
-
-* [Viewing Referrals](referral-management/viewing-referrals.md)
-* [Managing Referrals](referral-management/managing-referrals.md)
+* [Viewing Referrals](docs/referral-management/viewing-referrals.md)
+* [Managing Referrals](docs/referral-management/managing-referrals.md)
 
 ## Winners Management
-
-* [Weekly Pools and Approval Process](winners-management/weekly-pools-and-approval-process.md)
-* [Winner Approval Process](winners-management/winner-approval-process.md)
-* [Winners List](winners-management/winners-list.md)
+* [Weekly Pools and Approval Process](docs/winners-management/weekly-pools.md)
+* [Winner Approval Process](docs/winners-management/winner-approval.md)
+* [Winners List](docs/winners-management/winners-list.md)
 
 ## Settings
-
-* [Referral Commission Settings](settings/referral-commission-settings.md)
-* [Winner Prize Settings](settings/winner-prize-settings.md)
-* [Admin Wallet Balance](settings/admin-wallet-balance.md)
+* [Referral Commission Settings](docs/settings/referral-commission.md)
+* [Winner Prize Settings](docs/settings/winner-prize.md)
+* [Admin Wallet Balance](docs/settings/admin-wallet.md)
 
 ## Advanced Features
-
-* [Role-Based Access Control](advanced-features/role-based-access-control.md)
+* [Role-Based Access Control](docs/advanced-features/role-based-access.md)

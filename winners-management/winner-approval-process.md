@@ -1,2 +1,0 @@
-# Winner Approval Process
-
