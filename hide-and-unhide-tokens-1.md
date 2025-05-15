@@ -13,10 +13,26 @@ The Hide/Unhide Tokens feature in Strike Bot allows users to manage the visibili
 * **Token Filtering**: Automatically filters hidden tokens from all portfolio displays
 * **Persistent Settings**: Hidden token preferences are saved between sessions
 
-.Token Hiding: Remove specific tokens from display in portfolio viewsToken Unhiding: Restore visibility of previously hidden tokensHidden Tokens List: View and manage all currently hidden tokensQuick Access: Hide tokens directly from positions or sell menusToken Filtering: Automatically filters hidden tokens from all portfolio displaysPersistent Settings: Hidden token preferences are saved between sessionsHow to Use Hide/Unhide TokensHiding a TokenThere are multiple ways to hide a token:From Settings Menu:Navigate to Settings → Hidden TokensSelect "Hide a Token"Enter the token's contract addressFrom Positions Menu:Find the token you want to hideClick the \[Hide] link next to the tokenFrom Quick Links:Use direct link: t.me/YourBotUsername?start=hideToken-{tokenAddress}Viewing Hidden TokensAccess your hidden tokens list by:
+#### How to Use Hide/Unhide Tokens <a href="#how-to-use-hide-unhide-tokens" id="how-to-use-hide-unhide-tokens"></a>
 
-* Navigating to Settings → Hidden Tokens
-* This will display a list of all tokens you've previously hidden
+#### Hiding a Token
+
+There are multiple ways to hide a token:
+
+1. **From Settings Menu**:
+
+* Navigate to Settings → Hidden Tokens
+* Select "Hide a Token"
+* Enter the token's contract address
+
+2. **From Positions Menu**:
+
+* Find the token you want to hide
+* Click the \[Hide] link next to the token
+
+3. **From Quick Links**:
+
+* Use direct link: `t.me/YourBotUsername?start=hideToken-{tokenAddress}`
 
 **Unhiding a Token**
 
@@ -66,27 +82,17 @@ Carlos wants to share his portfolio performance with friends but doesn't want to
 
 #### Important Considerations <a href="#important-considerations" id="important-considerations"></a>
 
-*
 * **Wallet Contents**: Hiding tokens does not remove them from your wallet or affect your ownership
-*
 * **Trading Hidden Tokens**: You can still trade hidden tokens by entering their address manually
-*
 * **Token Identification**: Save token addresses before hiding them if you plan to unhide later
-*
 * **Swap Operations**: Hidden tokens can still be used in swap operations
-*
 * **Burn Tokens Option**: For actual removal of token accounts to reclaim rent, use the separate "Burn Tokens" feature
 
 #### Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
 
 Common issues and solutions:
 
-*
 * **Token Still Visible**: Try refreshing your positions view after hiding a token
-*
 * **Can't Find Hidden Token**: Check the full Hidden Tokens list in settings
-*
 * **Invalid Address Error**: Ensure you're entering a valid SPL token mint address
-*
-
-**Unhide Not Working**: Verify you're using the exact token address that was hidden
+* **Unhide Not Working**: Verify you're using the exact token address that was hidden
