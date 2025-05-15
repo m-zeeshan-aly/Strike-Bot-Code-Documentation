@@ -59,7 +59,3 @@
   * [Weekly Winner Routes](server/routes/weekly-winner-routes.md)
   * [Constants Routes](server/routes/constants-routes.md)
   * [Referral Routes](server/routes/referral-routes.md)
-* [Controllers](server/controllers/index.md)
-  * [User Controllers](server/controllers/user-controllers.md)
-  * [Transaction Controllers](server/controllers/transaction-controllers.md)
-  * [Weekly Winner Controllers](server/controllers/weekly-winner-controllers.md)
