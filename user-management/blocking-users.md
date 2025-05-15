@@ -1,8 +1,10 @@
+---
+description: This page explains how to block problematic users in the Strikebot Dashboard.
+---
+
 # Blocking Users
 
-This page explains how to block problematic users in the Strikebot Dashboard.
-
-## Accessing User Blocking
+### Accessing User Blocking
 
 To block problematic users:
 
@@ -10,7 +12,7 @@ To block problematic users:
 2. You'll see a list of currently blocked users
 3. To block a new user, click "Block New User" button
 
-## Block User Process
+### Block User Process
 
 To block a new user:
 
@@ -20,40 +22,43 @@ To block a new user:
 4. Set the block duration (temporary or permanent)
 5. Click "Block User" to confirm
 
-## Blocked Users List
+### Blocked Users List
 
 The Blocked Users section displays a table with:
 
-- User name
-- Email address
-- Telegram ID
-- Reason for blocking
-- Block date
-- Block duration
-- Block expiry date (for temporary blocks)
-- Admin who applied the block
-- Actions (Unblock, Edit Block)
+* User name
+* Email address
+* Telegram ID
+* Reason for blocking
+* Block date
+* Block duration
+* Block expiry date (for temporary blocks)
+* Admin who applied the block
+* Actions (Unblock, Edit Block)
 
-## Block Types
+### Block Types
 
 There are several types of blocks that can be applied:
 
-### Temporary Block
-- Blocks the user for a specified period
-- Automatically expires after the set duration
-- User regains access without admin intervention
+#### Temporary Block
 
-### Permanent Block
-- Blocks the user indefinitely
-- Requires admin action to unblock
-- Used for serious violations
+* Blocks the user for a specified period
+* Automatically expires after the set duration
+* User regains access without admin intervention
 
-### Feature-Specific Block
-- Restricts access to specific features
-- User maintains access to other platform areas
-- Useful for targeted restriction
+#### Permanent Block
 
-## Unblocking Users
+* Blocks the user indefinitely
+* Requires admin action to unblock
+* Used for serious violations
+
+#### Feature-Specific Block
+
+* Restricts access to specific features
+* User maintains access to other platform areas
+* Useful for targeted restriction
+
+### Unblocking Users
 
 To unblock a user:
 
@@ -63,7 +68,7 @@ To unblock a user:
 4. Confirm the action
 5. The user will regain access according to their role
 
-## Editing Block Details
+### Editing Block Details
 
 To modify an existing block:
 
@@ -72,7 +77,7 @@ To modify an existing block:
 3. Update the block reason, duration, or type
 4. Save the changes
 
-## Block History
+### Block History
 
 View a complete history of user blocks:
 
@@ -81,33 +86,31 @@ View a complete history of user blocks:
 3. Filter by date, duration, or block type
 4. Export block history for compliance purposes
 
-## Automatic Blocking
+### Automatic Blocking
 
 The system can automatically block users based on:
 
-- Suspicious activity detection
-- Multiple failed login attempts
-- Violation of platform terms
-- Reported by multiple users
+* Suspicious activity detection
+* Multiple failed login attempts
+* Violation of platform terms
+* Reported by multiple users
 
 Review automatic blocks regularly and confirm or remove them as appropriate.
 
-## Notification Options
+### Notification Options
 
 When blocking a user, configure notification settings:
 
-- Notify the user about the block with reason
-- Include an appeal process explanation
-- Send internal notification to the admin team
-- Create a compliance record for audit purposes
+* Notify the user about the block with reason
+* Include an appeal process explanation
+* Send internal notification to the admin team
+* Create a compliance record for audit purposes
 
-## Compliance and Documentation
+### Compliance and Documentation
 
 For regulatory compliance:
 
-- Document the reason for each block
-- Maintain evidence supporting the block decision
-- Record all communications with the blocked user
-- Follow applicable regulations for user restrictions
-
-![Blocking Users](../assets/images/blocking-users.png)
+* Document the reason for each block
+* Maintain evidence supporting the block decision
+* Record all communications with the blocked user
+* Follow applicable regulations for user restrictions

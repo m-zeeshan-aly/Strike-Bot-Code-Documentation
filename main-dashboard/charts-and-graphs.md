@@ -1,45 +1,55 @@
+---
+description: >-
+  The central section of the dashboard features interactive data visualizations
+  that provide insights into platform performance.
+---
+
 # Charts and Graphs
 
-The central section of the dashboard features interactive data visualizations that provide insights into platform performance.
-
-## Available Visualizations
+### Available Visualizations
 
 The dashboard includes several key data visualizations:
 
-### Bar Graph
-- Compares transaction volumes across time periods
-- Hover over bars to see exact values
-- Toggle between daily, weekly, and monthly views
+#### Bar Graph
 
-### Area Graph
-- Shows user activity trends over time
-- Use the legend to toggle different data series
-- Drag to zoom into specific time periods
+* Compares transaction volumes across time periods
+* Hover over bars to see exact values
+* Toggle between daily, weekly, and monthly views
 
-### Pie Chart
-- Visualizes distribution metrics
-- Click on segments to see detailed breakdown
-- Export chart data with the download button
+#### Area Graph
 
-## Interacting with Charts
+* Shows user activity trends over time
+* Use the legend to toggle different data series
+* Drag to zoom into specific time periods
+
+#### Pie Chart
+
+* Visualizes distribution metrics
+* Click on segments to see detailed breakdown
+* Export chart data with the download button
+
+### Interacting with Charts
 
 All charts in the dashboard are interactive:
 
-### Hovering
-- Hover over any data point to see detailed information
-- Tooltips display with exact values and additional context
+#### Hovering
 
-### Zooming and Panning
-- Click and drag to zoom in on a specific time period
-- Use the reset zoom button to return to the default view
-- Pan through data by clicking and dragging after zooming
+* Hover over any data point to see detailed information
+* Tooltips display with exact values and additional context
 
-### Toggling Data Series
-- Use the legend below each chart to show/hide specific data series
-- Click on a legend item to toggle visibility
-- Double-click to isolate a single data series
+#### Zooming and Panning
 
-## Exporting Data
+* Click and drag to zoom in on a specific time period
+* Use the reset zoom button to return to the default view
+* Pan through data by clicking and dragging after zooming
+
+#### Toggling Data Series
+
+* Use the legend below each chart to show/hide specific data series
+* Click on a legend item to toggle visibility
+* Double-click to isolate a single data series
+
+### Exporting Data
 
 You can export data from any chart:
 
@@ -48,7 +58,7 @@ You can export data from any chart:
 3. Choose your preferred format (CSV, Excel, or PNG)
 4. Save the file to your computer
 
-## Customizing Views
+### Customizing Views
 
 Administrators can customize which charts appear on the dashboard:
 
@@ -56,5 +66,3 @@ Administrators can customize which charts appear on the dashboard:
 2. Drag and drop chart widgets to rearrange them
 3. Enable or disable specific charts using the toggle switches
 4. Click "Save Layout" to preserve your changes
-
-![Charts and Graphs](../assets/images/charts-graphs.png)

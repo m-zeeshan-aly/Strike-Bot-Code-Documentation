@@ -1,8 +1,12 @@
+---
+description: >-
+  This page explains how to manage referral relationships and settings in the
+  Strikebot Dashboard.
+---
+
 # Managing Referrals
 
-This page explains how to manage referral relationships and settings in the Strikebot Dashboard.
-
-## Accessing Referral Management
+### Accessing Referral Management
 
 To manage referrals:
 
@@ -10,20 +14,20 @@ To manage referrals:
 2. Find the referral you want to manage
 3. Use the "Actions" column buttons to perform management tasks
 
-## Editing Referral Details
+### Editing Referral Details
 
 To modify referral information:
 
 1. Click the edit icon in the Actions column
 2. The referral edit form will open with the following fields:
-   - Owner information
-   - Reward wallet address
-   - Commission rate
-   - Status (active/inactive)
+   * Owner information
+   * Reward wallet address
+   * Commission rate
+   * Status (active/inactive)
 3. Make your changes
 4. Click "Save Changes" to update the referral
 
-## Setting Custom Commission Rates
+### Setting Custom Commission Rates
 
 Administrators can set custom commission rates for specific referrers:
 
@@ -33,7 +37,7 @@ Administrators can set custom commission rates for specific referrers:
 4. Enter the custom commission percentage
 5. Save the changes
 
-## Managing Referral Status
+### Managing Referral Status
 
 To activate or deactivate a referral:
 
@@ -42,11 +46,12 @@ To activate or deactivate a referral:
 3. Save the changes
 
 When a referral is set to inactive:
-- The referral link will no longer work for new signups
-- Existing referrals remain unaffected
-- Commission payments continue for existing referrals
 
-## Reassigning Referrals
+* The referral link will no longer work for new signups
+* Existing referrals remain unaffected
+* Commission payments continue for existing referrals
+
+### Reassigning Referrals
 
 To reassign a referral to a different owner:
 
@@ -55,7 +60,7 @@ To reassign a referral to a different owner:
 3. Choose whether to transfer commission history
 4. Confirm the reassignment
 
-## Generating New Referral Codes
+### Generating New Referral Codes
 
 To generate a new referral code for a user:
 
@@ -64,18 +69,18 @@ To generate a new referral code for a user:
 3. The system will generate a new unique code
 4. Old referral links will no longer work
 
-## Viewing Referral History
+### Viewing Referral History
 
 To view historical data for a referral:
 
 1. Click the "History" button in the Actions column
 2. The referral history panel will open showing:
-   - Commission payments
-   - Status changes
-   - Code changes
-   - Ownership transfers
+   * Commission payments
+   * Status changes
+   * Code changes
+   * Ownership transfers
 
-## Bulk Referral Actions
+### Bulk Referral Actions
 
 To perform actions on multiple referrals:
 
@@ -83,5 +88,3 @@ To perform actions on multiple referrals:
 2. Click the "Bulk Actions" dropdown
 3. Choose the action to perform (activate, deactivate, update commission)
 4. Confirm the action
-
-![Managing Referrals](../assets/images/managing-referrals.png)

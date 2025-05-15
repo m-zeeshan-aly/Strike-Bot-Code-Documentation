@@ -1,49 +1,57 @@
+---
+description: >-
+  This page explains how administrators can add new users to the Strikebot
+  Dashboard.
+---
+
 # Adding New Users
 
-This page explains how administrators can add new users to the Strikebot Dashboard.
-
-## User Creation Process
+### User Creation Process
 
 Admins can add new users to the system:
 
 1. Click the "Add User" button in the Users section
 2. Fill out the new user form:
-   - Name
-   - Email
-   - Role (Admin/Viewer)
+   * Name
+   * Email
+   * Role (Admin/Viewer)
 3. Click "Create User" to save
 
-## User Form Fields
+### User Form Fields
 
 When adding a new user, you'll need to provide the following information:
 
-### Required Fields
-- **Full Name**: The user's complete name
-- **Email Address**: A valid email address that will receive the access link
-- **User Role**: Select either Admin or Viewer role
+#### Required Fields
 
-### Optional Fields
-- **Department**: The department the user belongs to
-- **Job Title**: The user's position or title
-- **Notes**: Any additional information about the user
+* **Full Name**: The user's complete name
+* **Email Address**: A valid email address that will receive the access link
+* **User Role**: Select either Admin or Viewer role
 
-## Assigning User Roles
+#### Optional Fields
+
+* **Department**: The department the user belongs to
+* **Job Title**: The user's position or title
+* **Notes**: Any additional information about the user
+
+### Assigning User Roles
 
 When adding a new user, you must assign one of the following roles:
 
-### Admin Role
-- Full access to all dashboard features
-- Can add, edit, and remove users
-- Can modify system settings
-- Can approve or reject winners
+#### Admin Role
 
-### Viewer Role
-- Read-only access to dashboard data
-- Cannot make changes to users or settings
-- Cannot approve or reject winners
-- Limited to viewing reports and metrics
+* Full access to all dashboard features
+* Can add, edit, and remove users
+* Can modify system settings
+* Can approve or reject winners
 
-## User Notification
+#### Viewer Role
+
+* Read-only access to dashboard data
+* Cannot make changes to users or settings
+* Cannot approve or reject winners
+* Limited to viewing reports and metrics
+
+### User Notification
 
 After creating a new user:
 
@@ -52,7 +60,7 @@ After creating a new user:
 3. The magic link expires after 24 hours for security
 4. The user's status shows as "Pending" until they first log in
 
-## Bulk User Import
+### Bulk User Import
 
 For adding multiple users at once:
 
@@ -62,5 +70,3 @@ For adding multiple users at once:
 4. Upload the completed template
 5. Review and confirm the user list
 6. Click "Import" to create all users
-
-![Adding Users](../assets/images/adding-users.png)

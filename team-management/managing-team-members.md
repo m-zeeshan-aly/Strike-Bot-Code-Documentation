@@ -1,8 +1,12 @@
+---
+description: >-
+  This page explains how to manage members within existing teams in the
+  Strikebot Dashboard.
+---
+
 # Managing Team Members
 
-This page explains how to manage members within existing teams in the Strikebot Dashboard.
-
-## Accessing Team Member Management
+### Accessing Team Member Management
 
 To manage members in a team:
 
@@ -10,18 +14,18 @@ To manage members in a team:
 2. Find the team you want to manage
 3. Click the "Manage Members" button in the Actions column
 
-## Team Members List
+### Team Members List
 
 The team members management page displays:
 
-- List of all current team members
-- Their roles within the team
-- Join date
-- Last active date
-- Performance metrics
-- Actions column for member-specific actions
+* List of all current team members
+* Their roles within the team
+* Join date
+* Last active date
+* Performance metrics
+* Actions column for member-specific actions
 
-## Adding New Members
+### Adding New Members
 
 To add new members to an existing team:
 
@@ -31,7 +35,7 @@ To add new members to an existing team:
 4. Assign roles within the team for each selected user
 5. Click "Add to Team"
 
-## Changing Member Roles
+### Changing Member Roles
 
 To change a member's role within the team:
 
@@ -41,7 +45,7 @@ To change a member's role within the team:
 4. Provide a reason for the role change (optional)
 5. Click "Save Changes"
 
-## Removing Members
+### Removing Members
 
 To remove a member from the team:
 
@@ -50,30 +54,30 @@ To remove a member from the team:
 3. Confirm the action in the popup dialog
 4. The member will be removed from the team
 
-## Bulk Member Actions
+### Bulk Member Actions
 
 Perform actions on multiple team members at once:
 
 1. Select members by checking the boxes next to their names
 2. Click the "Bulk Actions" dropdown
 3. Choose an action:
-   - Change role
-   - Remove from team
-   - Transfer to another team
+   * Change role
+   * Remove from team
+   * Transfer to another team
 4. Complete the action in the dialog that appears
 
-## Member Performance Tracking
+### Member Performance Tracking
 
 View performance metrics for team members:
 
-- Activity level indicators
-- Task completion rates
-- Response times
-- Quality ratings
+* Activity level indicators
+* Task completion rates
+* Response times
+* Quality ratings
 
 Click "View Performance" for any member to see detailed metrics.
 
-## Member Activity Logs
+### Member Activity Logs
 
 View detailed activity logs for any team member:
 
@@ -82,7 +86,7 @@ View detailed activity logs for any team member:
 3. Filter activities by type, date, or impact
 4. Export activity logs if needed
 
-## Team Communications
+### Team Communications
 
 Send communications to team members:
 
@@ -92,12 +96,10 @@ Send communications to team members:
 4. Select delivery method (in-app, email, etc.)
 5. Send the message
 
-## Best Practices for Member Management
+### Best Practices for Member Management
 
-- Regularly review team membership and remove inactive members
-- Ensure roles are properly assigned based on responsibilities
-- Provide proper onboarding for new team members
-- Document role changes and removals for audit purposes
-- Maintain appropriate team size for effective collaboration
-
-![Managing Team Members](../assets/images/managing-team-members.png)
+* Regularly review team membership and remove inactive members
+* Ensure roles are properly assigned based on responsibilities
+* Provide proper onboarding for new team members
+* Document role changes and removals for audit purposes
+* Maintain appropriate team size for effective collaboration
