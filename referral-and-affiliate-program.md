@@ -63,4 +63,12 @@ Check your dashboard in the bot or website for:
 
 #### **FAQ** <a href="#faq" id="faq"></a>
 
-❓ **How often are payouts?** → Weekly, in SOL/USDC.❓ **Can I change my referral link?** → Yes, each user can change his referral link.❓ **Where can I see my referrals?** → Use `/referrals` in the bot or visit the website dashboard.❓ **Can i update my referrer?** → No, you can not update your referrer.❓ **Can i set my referrer?** → Yes, you can set your referrer if it not already set by you or your are not referred by anybody.
+❓ **How often are payouts?** → Weekly, in SOL/USDC.
+
+❓ **Can I change my referral link?** → Yes, each user can change his referral link.
+
+❓ **Where can I see my referrals?** → Use `/referrals` in the bot or visit the website dashboard.
+
+❓ **Can i update my referrer?** → No, you can not update your referrer.
+
+❓ **Can i set my referrer?** → Yes, you can set your referrer if it not already set by you or your are not referred by anybody.

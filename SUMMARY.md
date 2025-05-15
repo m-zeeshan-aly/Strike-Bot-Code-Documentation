@@ -17,8 +17,18 @@
 ***
 
 * [Referral & Affiliate Program](referral-and-affiliate-program.md)
-* [Page](page.md)
+* [Prize Pool System](prize-pool-system.md)
+* [Settings](settings.md)
 
-## Group 3
+## Advance Features
 
-* [Page 3](group-3/page-3.md)
+* [Limit Orders](advance-features/limit-orders.md)
+
+***
+
+* [Hide and Unhide Tokens](hide-and-unhide-tokens.md)
+* [Hide and Unhide Tokens](hide-and-unhide-tokens-1.md)
+
+## Security & transparnecy
+
+* [Page 1](security-and-transparnecy/page-1.md)
