@@ -6,17 +6,17 @@ This guide provides comprehensive instructions for setting up the Strikebot Dash
 
 Before you begin installation, ensure that you have the following prerequisites installed on your system:
 
-| Prerequisite | Minimum Version | Recommended Version | Purpose |
-|--------------|-----------------|---------------------|---------|
-| [Node.js](https://nodejs.org/) | v16.x | v18.x or later | JavaScript runtime |
-| [npm](https://www.npmjs.com/) | v7.x | v8.x or later | Package manager |
-| [Git](https://git-scm.com/) | v2.x | v2.30.0 or later | Version control |
+| Prerequisite                   | Minimum Version | Recommended Version | Purpose            |
+| ------------------------------ | --------------- | ------------------- | ------------------ |
+| [Node.js](https://nodejs.org/) | v16.x           | v18.x or later      | JavaScript runtime |
+| [npm](https://www.npmjs.com/)  | v7.x            | v8.x or later       | Package manager    |
+| [Git](https://git-scm.com/)    | v2.x            | v2.30.0 or later    | Version control    |
 
 You will also need access to:
 
-- A PostgreSQL database (such as [Neon DB](https://neon.tech/))
-- An SMTP server for email authentication
-- (Optional) A MongoDB database for specific features
+* A PostgreSQL database (such as [Neon DB](https://neon.tech/))
+* An SMTP server for email authentication
+* (Optional) A MongoDB database for specific features
 
 ## Step 1: Clone the Repository
 
@@ -217,12 +217,12 @@ npm run type-check
 
 After successful installation, you might want to:
 
-1. [Configure the application](../configuration/index.md) according to your requirements
-2. [Customize the dashboard](../customization/index.md) with your branding
-3. [Deploy the application](../deployment/index.md) to a production environment
+1. [Configure the application](index-3.md) according to your requirements
+2. [Customize the dashboard](customization/index.md) with your branding
+3. [Deploy the application](deployment/index.md) to a production environment
 
 ## Additional Resources
 
-- [Database Management](../guides/database-management.md)
-- [Authentication Configuration](../guides/authentication.md)
-- [User Management](../guides/user-management.md)
+* [Database Management](guides/database-management.md)
+* [Authentication Configuration](guides/authentication.md)
+* [User Management](guides/user-management.md)

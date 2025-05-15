@@ -59,4 +59,4 @@ The Strikebot Dashboard includes several key features designed to streamline adm
 
 ## Technical Overview
 
-The dashboard is built with a modern tech stack focused on performance, scalability, and developer experience. It utilizes Next.js 14 as its core framework, with TypeScript for type safety, and PostgreSQL as the primary database. For more details on the technical implementation, see the [Tech Stack](../tech-stack/index.md) section.
+The dashboard is built with a modern tech stack focused on performance, scalability, and developer experience. It utilizes Next.js 14 as its core framework, with TypeScript for type safety, and PostgreSQL as the primary database. For more details on the technical implementation, see the [Tech Stack](broken-reference) section.

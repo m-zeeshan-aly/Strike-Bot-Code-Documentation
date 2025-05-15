@@ -17,12 +17,12 @@ This documentation is organized into several sections, each focusing on a differ
 ## Quick Links
 
 * [Overview](overview/index.md)
-* [Installation Guide](guides/installation/index.md)
-* [Configuration Guide](guides/configuration/index.md)
-* [Running Guide](guides/running/index.md)
-* [Usage Guide](guides/usage/index.md)
+* [Installation Guide](guides/index-1.md)
+* [Configuration Guide](guides/index-3.md)
+* [Running Guide](guides/index-2.md)
+* [Usage Guide](guides/index.md)
 * [API Reference](api-reference/index.md)
-* [Technology Stack](tech-stack/index.md)
+* [Technology Stack](broken-reference)
 * [Component Library](component/index.md)
 
 ## Support
