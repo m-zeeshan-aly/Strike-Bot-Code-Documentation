@@ -4,36 +4,23 @@ Purchase any SPL token directly through Strike Bot with a simple command. This g
 
 **Step 3: Enter Amount**
 
-*
 * Specify how much SOL you want to spend
-*
 * Minimum purchase: 0.01 SOL
 
 **Step 4: Review & Confirm**
 
-*
-
 Check the transaction summary:
 
-*
 * SOL amount being spent
-*
 * Estimated tokens you'll receive
-*
 * Network fee
-*
-*
-  * Total cost
-*
+* Total cost
 * Select `Confirm` to execute or `Cancel` to abort
 
 **Step 5: Transaction Completion**
 
-*
 * Bot executes the swap on-chain via Solana DEXs
-*
 * You'll receive a confirmation with transaction hash
-*
 * Link to Solscan for verification is provided
 
 ***
@@ -48,33 +35,29 @@ You: /buyBot: Enter token address, symbol or name to buy:\[BONK] \[USDC] \[DUST]
 
 **Custom Slippage**
 
-*
 * Set your preferred slippage tolerance
-*
 * Default: 1% (recommended for most trades)
-*
 * Higher slippage may be needed for low liquidity tokens
 
 **Priority Gas**
 
-*
 * Increase transaction speed during congestion
-*
 * Enable in settings for faster execution
 
 ***
 
 #### **Trading Tips** <a href="#trading-tips" id="trading-tips"></a>
 
-*
 * **Check Price First**: Use `/price [token]` to see current rates
-*
 * **Market Timing**: SOL/SPL prices fluctuate rapidly
-*
 * **Gas Optimization**: Trading during off-peak hours may reduce fees
 
 ***
 
 #### **FAQ** <a href="#faq" id="faq"></a>
 
-❓ **What's the minimum purchase amount?** → 0.01 SOL❓ **How are fees calculated?** → 1% trading fee (0.1% to prize pool, 0.9% to Strike) + Solana network fee❓ **Can I buy any SPL token?** → Yes, any token with sufficient liquidity on Solana DEXs
+❓ **What's the minimum purchase amount?** → 0.01 SOL
+
+❓ **How are fees calculated?** → 1% trading fee (0.1% to prize pool, 0.9% to Strike) + Solana network fee
+
+❓ **Can I buy any SPL token?** → Yes, any token with sufficient liquidity on Solana DEXs

@@ -10,9 +10,7 @@
 
 ❓ **Why did my trade fail?** → Common reasons:
 
-*
 * Insufficient SOL for gas (always keep 0.01+ SOL for fees)
-*
 * Slippage too low (try 1-2% for volatile tokens)
 
 ❓ **How are prices determined?** → Real-time rates from Solana DEX aggregators (Orca, Raydium).
@@ -25,7 +23,7 @@
 
 #### **Error Solutions** <a href="#error-solutions" id="error-solutions"></a>
 
-|                         |                                         |
+| Error Message           | Fix                                     |
 | ----------------------- | --------------------------------------- |
 | "Insufficient balance"  | Deposit more SOL or reduce trade amount |
 | "Invalid token address" | Only Solana Spl tokens are supported    |
@@ -37,9 +35,5 @@
 
 🛠️ **Support Channels**:
 
-*
 * Emial: `Info@strikebot.xyz`
-
->
-
-⏳ **Response Time**: Typically under 6 hours. Include your Solana address and error screenshots.
+* ⏳ **Response Time**: Typically under 6 hours. Include your Solana address and error screenshots.

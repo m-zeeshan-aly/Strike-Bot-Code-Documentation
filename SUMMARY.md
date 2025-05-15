@@ -12,6 +12,12 @@
 * [Trading](telegram-bot-user-guide/trading/README.md)
   * [Buy](telegram-bot-user-guide/trading/buy.md)
   * [Sell](telegram-bot-user-guide/trading/sell.md)
+* [Withdrawals](telegram-bot-user-guide/withdrawals.md)
+
+***
+
+* [Referral & Affiliate Program](referral-and-affiliate-program.md)
+* [Page](page.md)
 
 ## Group 3
 

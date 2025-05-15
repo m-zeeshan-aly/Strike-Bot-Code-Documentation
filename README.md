@@ -6,8 +6,6 @@ Strike Bot is a feature-rich Telegram bot that brings the power of Solana's high
 
 ***
 
-***
-
 #### **Core Features** <a href="#core-features" id="core-features"></a>
 
 **🚀 Instant Trading**
@@ -56,15 +54,10 @@ Access price feeds, charts, and market information instantly.
 
 Ready to dive in? Head over to our Getting Started guide to set up your account in under 60 seconds.Or explore our comprehensive guides to learn about specific features:
 
-*
 * Buying Tokens
-*
 * Selling Tokens
-*
 * Withdrawals
-*
 * Prize Pool System
-*
 * Referral Program
 
 ***

@@ -14,26 +14,18 @@ description: >-
 
 #### **2. Create Your Account** <a href="#id-2.-create-your-account" id="id-2.-create-your-account"></a>
 
-*
 * Type `/start` to initialize your account
-*
 * Your account is created instantly
 
 #### **3. Check Commands** <a href="#id-3.-check-commands" id="id-3.-check-commands"></a>
 
 Essential commands to know:
 
-*
-* `/buy` - Purchase tokens
-*
+* `/buy` - Purchase token
 * `/sell` - Sell tokens
-*
 * `/withdraw` - Transfer funds to wallet
-*
 * `/settings` - Access full command list
-*
 * `/limitorders` - Access all the placed limit orders
-*
 * `/help` - Open the help menu
 
 #### **4. Make Your First Trade** <a href="#id-4.-make-your-first-trade" id="id-4.-make-your-first-trade"></a>
@@ -52,33 +44,23 @@ Essential commands to know:
 
 #### **6. Join Weekly Prize Draw** <a href="#id-6.-join-weekly-prize-draw" id="id-6.-join-weekly-prize-draw"></a>
 
-*
 * Every trade automatically enters you
-*
 * 0.1% of trade volume funds the pool
-*
 * Winners announced Sundays at 7 PM EST
 
 #### **7. Invite Friends & Earn** <a href="#id-7.-invite-friends-and-earn" id="id-7.-invite-friends-and-earn"></a>
 
-*
 * Use `/referrals` to get your unique link
-*
 * Earn 50% commission on direct referrals
-*
 * Earn 10% on second-layer referrals
 
 ***
 
 #### **Tips for Success** <a href="#tips-for-success" id="tips-for-success"></a>
 
-*
 * Start with small trades to get comfortable
-*
 * Always verify wallet addresses before withdrawing
-*
 * Set slippage higher for low-liquidity tokens
-*
 * Save transaction links for your records
 
 ***
