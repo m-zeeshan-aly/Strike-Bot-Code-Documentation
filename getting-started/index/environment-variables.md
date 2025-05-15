@@ -27,23 +27,29 @@
 ### Example Configuration
 
 ```env
-# Required Variables
-IV_KEY=your-iv-key
-MONGO_URI=mongodb://username:password@host:port/database
-BOT_TOKEN=1234567890:ABCdefGHIjklMNOpqrsTUVwxyz
-BOT_USERNAME=YourBotUsername
-PLATFORM_FEE_PERCENTAGE=1
-ENCRYPTION_KEY=your-encryption-key
-QUICKNODE_API_KEY=your-quicknode-key
-PLATFORM_FEE_WALLET_ADDRESS=your-solana-wallet-address
+# Bot Configuration
+BOT_TOKEN="YOUR_BOT_TOKEN_HERE"
+BOT_USERNAME="YOUR_BOT_USERNAME"
 
-# Optional Variables
-REDIS_SERVER_URL=redis://localhost:6379
-QUIKNODE_RPC_URL=https://your-quicknode-endpoint
-RPC_URL=https://your-rpc-endpoint
-BOT_MODE=polling
-DEBUG=false
-LOG_LEVEL=info
+# Solana Configuration
+RPC_URL="https://api.mainnet-beta.solana.com"
+PLATFORM_FEE_WALLET_ADDRESS="YOUR_WALLET_ADDRESS"
+PLATFORM_FEE_PERCENTAGE="2.5"
+
+# Database Configuration
+MONGO_URI="mongodb://localhost:27017/strike-bot"
+
+# Redis Configuration
+REDIS_SERVER_URL="redis://redis:6379/0"
+
+# Security Keys
+IV_KEY="YOUR_IV_KEY"
+ENCRYPTION_KEY="YOUR_ENCRYPTION_KEY"
+
+# API Keys
+QUICKNODE_API_KEY="YOUR_QUICKNODE_API_KEY"
+QUIKNODE_RPC_URL="YOUR_QUICKNODE_RPC_URL"
+QUICKNOTE_JUPITER_SWAP_API="YOUR_JUPITER_SWAP_API"
 ```
 
 ### Validation Rules

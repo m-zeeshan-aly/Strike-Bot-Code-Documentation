@@ -2,12 +2,13 @@
 
 ## Introduction
 
-* [Technical Stack](README.md)
-* [Project Overview](introduction/project-overview.md)
+* [Project Overview](README.md)
 * [Key Features](introduction/key-features.md)
+* [Technical Stack](<README (1).md>)
 
 ## Getting Started
 
+* [Quick Start Guide](getting-started/quick-start.md)
 * [Prerequisites](getting-started/installation.md)
 * [Installation](getting-started/installation-1.md)
 * [Configuration](getting-started/index/README.md)
@@ -16,13 +17,17 @@
   * [Database Configuration](getting-started/index/database-configuration.md)
   * [Redis Configuration](getting-started/index/redis-configuration.md)
   * [Queue Configuration](getting-started/index/queue-configuration.md)
-* [Quick Start Guide](getting-started/quick-start.md)
 
-## Architecture
+## Deployment
 
-* [Database Schema](architecture/database-schema.md)
-* [Queue System](architecture/queue-system.md)
-* [System Design](architecture/system-design.md)
+* [Deployment Guide](deployment/deployment-guide.md)
+* [CI/CD Pipeline](deployment/ci-cd-pipeline.md)
+
+## API Reference
+
+* [API Overview](api-reference/api-overview.md)
+* [Internal APIs](api-reference/internal-apis.md)
+* [External APIs](api-reference/external-apis.md)
 
 ## Core Components
 
@@ -40,6 +45,12 @@
 * [Middlewares](core-components/index-1/README.md)
   * [Settings Middleware](core-components/index-1/settings-middleware.md)
 
+## Architecture
+
+* [Database Schema](architecture/database-schema.md)
+* [Queue System](architecture/queue-system.md)
+* [System Design](architecture/system-design.md)
+
 ## Server Implementation
 
 * [API Routes](server/api-routes.md)
@@ -52,16 +63,3 @@
   * [User Controllers](server/controllers/user-controllers.md)
   * [Transaction Controllers](server/controllers/transaction-controllers.md)
   * [Weekly Winner Controllers](server/controllers/weekly-winner-controllers.md)
-
-## Deployment
-
-* [Docker Deployment](deployment/docker.md)
-* [PM2 Deployment](deployment/pm2.md)
-* [Production Setup](deployment/production-setup.md)
-* [Monitoring](deployment/monitoring.md)
-
-## API Reference
-
-* [Internal APIs](api-reference/internal-apis.md)
-* [External APIs](api-reference/external-apis.md)
-* [WebSocket APIs](api-reference/websocket-apis.md)

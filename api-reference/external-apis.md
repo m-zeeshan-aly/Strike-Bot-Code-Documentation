@@ -1,189 +1,68 @@
 # External APIs
 
-These APIs are used for integrating with external services and third-party systems.
+The Strike Bot integrates with several external APIs to provide its functionality. This document details the external APIs used by the system.
 
-### Price APIs
+## Solana Network APIs
 
-#### DexScreener Price Service
+### Web3.js RPC
+- **Purpose**: Interact with the Solana blockchain
+- **Endpoints**: Configurable via `SOLANA_RPC_URL` environment variable
+- **Documentation**: [Solana Web3.js Documentation](https://solana-labs.github.io/solana-web3.js/)
 
+### Jupiter Aggregator
+- **Purpose**: Execute token swaps with best rates
+- **Base URL**: https://quote-api.jup.ag/v6
+- **Documentation**: [Jupiter API Documentation](https://station.jup.ag/docs/apis/overview)
+
+### DexScreener Price API
+- **Purpose**: Get real-time token prices
+- **Base URL**: https://api.dexscreener.com/v1
+- **Documentation**: [DexScreener API Documentation](https://docs.dexscreener.com/api/reference)
+
+## Authentication Service APIs
+
+The application uses JWT-based authentication. All external service calls require proper authentication headers.
+
+### Request Format
 ```http
-GET /api/prices/token
+GET /api/endpoint
+Authorization: Bearer <jwt-token>
 ```
 
-Fetches token prices from DexScreener API with fallback to Jupiter.
-
-**Query Parameters:**
-
-* `tokenAddress`: Solana token address
-* `network`: Network identifier (default: "mainnet")
-
-**Response:**
-
+### Response Format
+All API responses follow a standard format:
 ```json
 {
-  "price": "1.23",
-  "priceUsd": "1.23",
-  "timestamp": "2025-05-12T10:30:00Z",
-  "source": "DexScreener"
+  "success": true,
+  "data": {},
+  "error": null
 }
 ```
 
-#### Jupiter Swap API Integration
+## Rate Limits
 
-**Get Swap Quote**
+External API rate limits are managed through a Redis-based queueing system. The system implements exponential backoff for failed requests.
 
-```http
-GET /api/swap/quote
-```
+## Error Handling
 
-Fetches swap quotes from Jupiter API.
+The system implements comprehensive error handling for external API calls:
+- Retries with exponential backoff for temporary failures
+- Circuit breaker pattern for persistent failures
+- Fallback mechanisms for critical operations
 
-**Query Parameters:**
+## WebSocket APIs
 
-* `inputMint`: Input token mint address
-* `outputMint`: Output token mint address
-* `amount`: Amount to swap
-* `slippageBps`: Slippage tolerance in basis points (default: 100)
+Some features utilize WebSocket connections for real-time updates:
 
-**Response:**
+### Price Feed WebSocket
+- **Purpose**: Real-time price updates
+- **Connection**: Secure WebSocket (wss://)
+- **Authentication**: API key in connection parameters
+- **Heartbeat**: Required every 30 seconds
 
-```json
-{
-  "inAmount": "1000000",
-  "outAmount": "2000000",
-  "priceImpactPct": "0.1",
-  "routePlan": [...],
-  "slippageBps": 100
-}
-```
+## Caching
 
-### Solana Integration APIs
-
-#### Get SOL Balance
-
-```http
-GET /api/solana/balance/{walletAddress}
-```
-
-Fetches SOL balance for a wallet address.
-
-**Response:**
-
-```json
-{
-  "balance": "1.234",
-  "balanceInLamports": "1234000000"
-}
-```
-
-#### Get Token Holdings
-
-```http
-GET /api/solana/tokens/{walletAddress}
-```
-
-Retrieves token holdings for a wallet address.
-
-**Response:**
-
-```json
-{
-  "tokens": [
-    {
-      "mint": "SOL...",
-      "balance": "1.234",
-      "decimals": 9,
-      "symbol": "SOL"
-    }
-  ]
-}
-```
-
-### Transaction Confirmation Service
-
-#### Verify Transaction
-
-```http
-POST /api/transaction-confirmation/verify
-```
-
-Verifies a Solana transaction.
-
-**Request Body:**
-
-```json
-{
-  "signature": "transaction_signature",
-  "expectedAmount": "1.23"
-}
-```
-
-**Response:**
-
-```json
-{
-  "verified": true,
-  "status": "confirmed",
-  "confirmations": 32
-}
-```
-
-#### Get Transaction Details
-
-```http
-GET /api/transaction-confirmation/details/{signature}
-```
-
-Fetches detailed information about a transaction.
-
-**Response:**
-
-```json
-{
-  "signature": "transaction_signature",
-  "slot": 12345,
-  "confirmations": 32,
-  "timestamp": "2025-05-12T10:30:00Z",
-  "status": "confirmed"
-}
-```
-
-### Rate Limits
-
-External APIs are subject to rate limiting:
-
-* Standard tier: 60 requests per minute
-* Premium tier: 300 requests per minute
-
-### Error Handling
-
-External APIs use standard HTTP status codes and return detailed error messages:
-
-```json
-{
-  "error": {
-    "code": "RATE_LIMIT_EXCEEDED",
-    "message": "Too many requests",
-    "details": {
-      "retryAfter": 60
-    }
-  }
-}
-```
-
-Common Error Codes:
-
-* `RATE_LIMIT_EXCEEDED`: Request limit reached
-* `INVALID_PARAMETERS`: Invalid input parameters
-* `SERVICE_UNAVAILABLE`: External service unavailable
-* `NETWORK_ERROR`: Network-related issues
-
-### Authentication
-
-External APIs require API key authentication:
-
-```http
-Authorization: Bearer YOUR_API_KEY
-```
-
-Contact support to obtain API credentials for external service access.
+External API responses are cached using Redis to optimize performance and reduce API calls:
+- Price data: 30 seconds
+- Token metadata: 1 hour
+- Network status: 5 minutes

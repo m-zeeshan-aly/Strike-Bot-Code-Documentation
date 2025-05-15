@@ -57,7 +57,6 @@ Perform common operations to maintain and troubleshoot the bot:
 
 * **Reset Bot**:
   * Clear Redis Session: `redis-cli FLUSHALL`
-  * Restart Bot: `pm2 restart strike-bot`
 * **Handle Transactions**:
   * Create Transaction: `/buy <token_address>`
   * Monitor Transaction: Check transaction status in the user interface.
