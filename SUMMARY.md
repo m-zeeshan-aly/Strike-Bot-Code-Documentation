@@ -27,7 +27,7 @@
 ***
 
 * [Hide and Unhide Tokens](hide-and-unhide-tokens.md)
-* [Hide and Unhide Tokens](hide-and-unhide-tokens-1.md)
+* [Positions](positions.md)
 
 ## Security & transparnecy
 
