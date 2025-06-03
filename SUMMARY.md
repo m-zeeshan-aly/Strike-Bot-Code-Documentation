@@ -38,11 +38,6 @@
   * [Settings Service](core-components/index/settings-service.md)
 * [Middlewares](core-components/index-1/README.md)
   * [Settings Middleware](core-components/index-1/settings-middleware.md)
-* [External APIs](core-components/external-apis/README.md)
-  * [QuickNode Solana RPC](core-components/external-apis/quicknode-solana-rpc.md)
-  * [DexScreener](core-components/external-apis/dexscreener.md)
-  * [GeckoTerminal](core-components/external-apis/geckoterminal.md)
-  * [QuickNode API](core-components/external-apis/quicknode-api.md)
 
 ## Architecture
 
