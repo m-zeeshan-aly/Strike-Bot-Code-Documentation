@@ -39,12 +39,10 @@
 * [Middlewares](core-components/index-1/README.md)
   * [Settings Middleware](core-components/index-1/settings-middleware.md)
 * [External APIs](core-components/external-apis/README.md)
-  * [Solana RPC](core-components/external-apis/solana-rpc.md)
+  * [QuickNode Solana RPC](core-components/external-apis/quicknode-solana-rpc.md)
   * [DexScreener](core-components/external-apis/dexscreener.md)
   * [GeckoTerminal](core-components/external-apis/geckoterminal.md)
-  * [QuickNode Jupiter Price](core-components/external-apis/quicknode-jupiter-price.md)
-  * [QuickNode Jupiter Swap](core-components/external-apis/quicknode-jupiter-swap.md)
-  * [Metaplex](core-components/external-apis/metaplex.md)
+  * [QuickNode API](core-components/external-apis/quicknode-api.md)
 
 ## Architecture
 
