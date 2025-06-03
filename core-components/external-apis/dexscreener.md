@@ -1,7 +1,5 @@
 # DexScreener
 
-## DexScreener API
-
 ### Overview
 
 DexScreener API provides comprehensive data about tokens and trading pairs on the Solana blockchain. Strike Bot uses this API primarily for fetching token prices, liquidity information, and market capitalization data, with a fallback to Jupiter Price API when needed.
@@ -99,6 +97,12 @@ private async fetchPriceWithCircuitBreaker(tokenAddress: string): Promise<number
 
 * Free tier: 300 requests per minute
 * The service implements a 280 requests/minute limit for safety
+
+### User Capacity and Scaling
+
+The DexScreener API is free to use with a rate limit of 300 requests per minute (or 280 requests/minute as implemented for safety). This translates to approximately **18,000 requests per hour** (300 requests/min × 60 min). Assuming an average user makes 5 requests per hour (e.g., checking token prices, liquidity, or market cap), this plan can support around **3,360 users per hour** at peak load. This estimate depends on usage patterns, such as the frequency of API calls and the number of tokens queried.
+
+If you need to support more users or handle higher request volumes, monitor your usage against the rate limit. For potential upgrades or custom solutions (e.g., higher rate limits or additional features), contact DexScreener support via their official website at [DexScreener](https://dexscreener.com/).
 
 ### Example Usage
 

@@ -38,6 +38,13 @@
   * [Settings Service](core-components/index/settings-service.md)
 * [Middlewares](core-components/index-1/README.md)
   * [Settings Middleware](core-components/index-1/settings-middleware.md)
+* [External APIs](core-components/external-apis/README.md)
+  * [Solana RPC](core-components/external-apis/solana-rpc.md)
+  * [DexScreener](core-components/external-apis/dexscreener.md)
+  * [GeckoTerminal](core-components/external-apis/geckoterminal.md)
+  * [QuickNode Jupiter Price](core-components/external-apis/quicknode-jupiter-price.md)
+  * [QuickNode Jupiter Swap](core-components/external-apis/quicknode-jupiter-swap.md)
+  * [Metaplex](core-components/external-apis/metaplex.md)
 
 ## Architecture
 
@@ -53,13 +60,6 @@
   * [Weekly Winner Routes](server/routes/weekly-winner-routes.md)
   * [Constants Routes](server/routes/constants-routes.md)
   * [Referral Routes](server/routes/referral-routes.md)
-* [External APIS](server-implementation/external-apis/README.md)
-  * [GeckoTerminal](server-implementation/external-apis/geckoterminal.md)
-  * [Solana RPC](server-implementation/external-apis/solana-rpc.md)
-  * [DexScreener](server-implementation/external-apis/dexscreener.md)
-  * [Jupiter Price](server-implementation/external-apis/jupiter-price.md)
-  * [Metaplex](server-implementation/external-apis/metaplex.md)
-  * [QuickNode Jupiter Swap](server-implementation/external-apis/quicknode-jupiter-swap.md)
 * [Controllers](server/controllers/index.md)
   * [User Controllers](server/controllers/user-controllers.md)
   * [Transaction Controllers](server/controllers/transaction-controllers.md)
