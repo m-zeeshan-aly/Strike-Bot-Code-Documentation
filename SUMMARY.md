@@ -62,3 +62,10 @@
   * [User Controllers](server/controllers/user-controllers.md)
   * [Transaction Controllers](server/controllers/transaction-controllers.md)
   * [Weekly Winner Controllers](server/controllers/weekly-winner-controllers.md)
+
+## External resources
+
+* [QuickNode Solana RPC](external-resources/quicknode-solana-rpc.md)
+* [DexScreener API](external-resources/dexscreener-api.md)
+* [GeckoTerminal API](external-resources/geckoterminal-api.md)
+* [QuickNode API](external-resources/quicknode-api.md)
