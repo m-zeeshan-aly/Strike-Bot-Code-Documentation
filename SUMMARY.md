@@ -64,3 +64,7 @@
 * [DexScreener API](external-resources/dexscreener-api.md)
 * [GeckoTerminal API](external-resources/geckoterminal-api.md)
 * [QuickNode API](external-resources/quicknode-api.md)
+
+## Skills
+
+* [Bot Developer Skills](skills/bot-developer-skills.md)
