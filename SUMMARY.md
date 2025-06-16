@@ -65,6 +65,12 @@
 * [GeckoTerminal API](external-resources/geckoterminal-api.md)
 * [QuickNode API](external-resources/quicknode-api.md)
 
+***
+
+* [QuickNode Metis Jupiter Swap API](quicknode-metis-jupiter-swap-api.md)
+* [AWS Subscription Details](aws-subscription-details.md)
+* [Monthly Cost Breakdown](monthly-cost-breakdown.md)
+
 ## Skills
 
 * [Bot Developer Skills](skills/bot-developer-skills.md)
