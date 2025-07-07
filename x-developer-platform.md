@@ -93,8 +93,6 @@ To access the Basic Package:
 
 The X Developer Platform Basic Package offers a substantial upgrade from the free tier at $200/month, providing 150x more read capacity and 50x more posting capacity. It's positioned as the entry point for serious development work while maintaining affordability for smaller projects and prototypes[^1].
 
-⁂
-
 [^1]: https://developer.x.com/en
 
 [^2]: https://docs.x.com/x-api/getting-started/about-x-api
