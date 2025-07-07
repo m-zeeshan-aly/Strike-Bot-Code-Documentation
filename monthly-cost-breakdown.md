@@ -1,67 +1,132 @@
 # Monthly Cost Breakdown
 
-### Strike Bot Infrastructure Costs
+![](https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png)
 
-| Service/Platform      | Plan/Tier         | Monthly Cost (USD) | Users/Accounts | Notes                             |
-| --------------------- | ----------------- | ------------------ | -------------- | --------------------------------- |
-| **AWS EC2**           | Production & Test | \~$60              | 1 account      | t3.small + t2.micro instances     |
-| **QuickNode**         | Build Plan        | $49                | 1 account      | Solana RPC & Jupiter API (50 RPS) |
-| **Metis Jupiter API** | Launch Plan       | $249               | 1 account      | Premium Jupiter Swap API (50 RPS) |
-| **CoinGecko**         | Analyst Plan      | $129               | 1 account      | Token data & market info          |
-| **DexScreener API**   | Free Tier         | $0                 | 1 account      | 300 requests/minute limit         |
-| **Vercel**            | Pro Plan          | $40                | 2 users        | bigosoft + kamron                 |
-| **GitHub**            | Organization      | $0                 | Multiple       | strike-bot org (owner: kamronzy)  |
+## Updated Monthly Cost Breakdown - Strike Bot Infrastructure
 
-***
+### Current Infrastructure Costs (July 2025)
 
-### Total Monthly Infrastructure Cost
+#### Complete Service Breakdown
 
-| Category                 | Amount (USD) |
-| ------------------------ | ------------ |
-| **Cloud Infrastructure** | $60          |
-| **API Services**         | $427         |
-| **Development Tools**    | $40          |
-| **Version Control**      | $0           |
-| **TOTAL**                | **$527**     |
+| **Service/Platform**     | **Plan/Tier**     | **Monthly Cost (USD)** | **Users/Accounts** | **Notes**                                   |
+| ------------------------ | ----------------- | ---------------------- | ------------------ | ------------------------------------------- |
+| **AWS EC2**              | Production & Test | $60                    | 1 account          | t3.small + t2.micro instances               |
+| **QuickNode**            | Build Plan        | $49                    | 1 account          | Solana RPC & Jupiter API (50 RPS)           |
+| **Metis Jupiter API**    | Launch Plan       | $249                   | 1 account          | Premium Jupiter Swap API (50 RPS)           |
+| **CoinGecko**            | Analyst Plan      | $129                   | 1 account          | Token data & market info                    |
+| **DexScreener API**      | Free Tier         | $0                     | 1 account          | 300 requests/minute limit                   |
+| **Vercel**               | Pro Plan          | $40                    | 2 users            | bigosoft + kamron                           |
+| **GitHub**               | Organization      | $0                     | Multiple           | strike-bot org (owner: kamronzy)            |
+| **X Developer Platform** | Basic Package     | $200                   | 1 account          | Rate-limited v2 endpoints, 3,000 posts/user |
+| **TwitterAPI.io**        | Pay-as-you-go     | $10                    | 1 account          | Pay per usage, tweets/profiles/followers    |
 
-***
+#### Total Monthly Infrastructure Cost
 
-### Cost Distribution
+| **Category**             | **Amount (USD)** | **Percentage** |
+| ------------------------ | ---------------- | -------------- |
+| **Cloud Infrastructure** | $60              | 8.1%           |
+| **API Services**         | $637             | 86.4%          |
+| **Development Tools**    | $40              | 5.4%           |
+| **Version Control**      | $0               | 0.0%           |
+| **TOTAL**                | **$737**         | **100%**       |
 
-* **API Services**: 81% ($427)
-* **Cloud Infrastructure**: 11% ($60)
-* **Development Tools**: 8% ($40)
-* **Version Control**: 0% ($0)
+### Cost Analysis & Breakdown
 
-***
+#### API Services ($637 - 86.4% of total)
 
-### Account Details
+**Social Media & Data APIs:**
 
-#### AWS
+* X Developer Platform Basic: $200/month
+* TwitterAPI.io: $10/month (estimated usage)
 
-* **Account**: info@strikebot.xyz
-* **Services**: EC2 instances, EBS storage, networking
+**Blockchain & Trading APIs:**
 
-#### Vercel
+* Metis Jupiter API Launch Plan: $249/month
+* QuickNode Build Plan: $49/month
+* CoinGecko Analyst Plan: $129/month
+* DexScreener API: $0/month (free tier)
 
-* **Plan**: Pro ($20/month per user)
-* **Users**:
-  * bigosoft
-  * kamron
+#### Cloud Infrastructure ($60 - 8.1% of total)
 
-#### GitHub
+**AWS EC2 Services:**
 
-* **Organization**: strike-bot
-* **Owner**: kamronzy
-* **Plan**: Free (Open source/private repositories)
+* Production instance (t3.small): \~$40/month
+* Test instance (t2.micro): \~$20/month
 
-#### API Services
+#### Development Tools ($40 - 5.4% of total)
 
-* **QuickNode Build**: Basic Solana RPC and Jupiter API access
-* **Metis Jupiter API**: Premium Jupiter Swap API with enhanced features
-* **CoinGecko**: Comprehensive crypto market data
-* **DexScreener**: Free token price feeds
+**Hosting & Deployment:**
 
-***
+* Vercel Pro Plan: $40/month (2 users)
 
-_Last Updated: Current as of project analysis_
+#### Version Control ($0 - 0% of total)
+
+**Code Management:**
+
+* GitHub Organization: Free
+
+### Recent Changes & Impact
+
+#### New Additions
+
+* **X Developer Platform Basic**: +$200/month
+* **TwitterAPI.io**: +$10/month
+
+#### Cost Impact
+
+* **Previous Total**: $527/month
+* **Current Total**: $737/month
+* **Increase**: $210/month (+39.8%)
+
+### Service Utilization Summary
+
+#### High-Value Services
+
+1. **Metis Jupiter API** ($249) - Core trading functionality
+2. **X Developer Platform** ($200) - Social media automation
+3. **CoinGecko** ($129) - Market data and analytics
+
+#### Supporting Services
+
+* **AWS EC2** ($60) - Infrastructure hosting
+* **QuickNode** ($49) - Blockchain connectivity
+* **Vercel** ($40) - Frontend deployment
+* **TwitterAPI.io** ($10) - Additional Twitter data access
+
+#### Free Tier Services
+
+* **GitHub** - Code repository management
+* **DexScreener API** - DEX trading data (limited)
+
+### Account Management
+
+#### Primary Account Holders
+
+* **AWS**: 1 account
+* **X Developer Platform**: 1 account
+* **TwitterAPI.io**: 1 account
+* **Vercel**: 2 users (bigosoft + kamron)
+* **GitHub**: Multiple users under strike-bot organization
+
+#### Usage Monitoring
+
+* **X Developer Platform**: 3,000 user posts, 50,000 app posts, 15,000 reads/month
+* **TwitterAPI.io**: 1,000,000 credits ($10 budget)
+* **QuickNode**: 50 RPS limit
+* **Metis Jupiter API**: 50 RPS limit
+
+### Recommendations
+
+#### Cost Optimization
+
+* Monitor TwitterAPI.io usage to ensure $10 budget is sufficient
+* Consider annual subscription for X Developer Platform (save $25/month)
+* Evaluate DexScreener API free tier limits vs. potential paid upgrade
+
+#### Scaling Considerations
+
+* AWS EC2 instances may need upgrading as user base grows
+* API rate limits should be monitored for potential tier upgrades
+* Consider bulk pricing negotiations for high-usage APIs
+
+This updated breakdown reflects the addition of social media automation capabilities through X Developer Platform and TwitterAPI.io, representing a significant investment in data access and social engagement features for the Strike Bot project.
