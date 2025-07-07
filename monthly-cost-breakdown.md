@@ -1,8 +1,6 @@
 # Monthly Cost Breakdown
 
-![](https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png)
-
-## Updated Monthly Cost Breakdown - Strike Bot Infrastructure
+## Strike Bot Infrastructure
 
 ### Current Infrastructure Costs (July 2025)
 
