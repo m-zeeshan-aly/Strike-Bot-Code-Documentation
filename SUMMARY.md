@@ -69,6 +69,7 @@
 
 * [QuickNode Metis Jupiter Swap API](quicknode-metis-jupiter-swap-api.md)
 * [AWS Subscription Details](aws-subscription-details.md)
+* [X Developer Platform](x-developer-platform.md)
 * [Monthly Cost Breakdown](monthly-cost-breakdown.md)
 
 ## Skills
